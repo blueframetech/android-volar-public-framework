@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- App -->
+    <string name="app_name">DemoApp</string>
+    <string name="ihigh_mobile">iHigh Mobile</string>
+    
+    <!-- Titles -->
+    <string name="title_add_school">Add Site</string>
+    <string name="title_school_media">Site Media</string>
+    <string name="title_add_domain">Add Domain</string>
+    <string name="title_choose_site">Choose Site</string>
+    
+    <!-- Dialogs -->
+    <string name="loading">Loading&#8230;</string>
+    <string name="searching">Searching&#8230;</string>
+    <string name="deleting">Deleting&#8230;</string>
+    <string name="copying_db">Copying databse&#8230;</string>
+    <string name="marking_read">Marking Read&#8230;</string>
+    <string name="ihigh_error">iHigh Error</string>
+    <string name="no_internet">No internet connection or iHigh.com not available.  Try again later.</string>
+    <string name="getting_started">Getting Started&#8230;</string>
+    <string name="getting_started_msg">Tap on the white bar (above) to add a new site.</string>
+    <string name="dialog_end_of_video_title">End of video</string>
+    <string name="dialog_end_of_video_message">End of video occure</string>
+    <string name="main_could_not_open_stream">Could not open stream</string>
+    <string name="unknown">Unknown</string>
+    
+    <!-- Misc -->
+    <string name="school_search_hint">Search to add site</string>
+    <string name="done">Done</string>
+    <string name="back">Back</string>
+    <string name="edit">Edit</string>
+    <string name="add">Add</string>
+    <string name="domain">Domain</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ok">OK</string>
+    <string name="change_domain">Change Domain</string>
+    <string name="photos">photos</string>
+    <string name="views">views</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="live">Live</string>
+    <string name="archived">Archived</string>
+    <string name="mark_all_read">Mark All Read</string>
+    <string name="search">Search</string>
+    <string name="no_results">No Results</string>
+    <string name="problem_retrieving">Problem Retrieving Data</string>
+    <string name="really_delete_school">Are you sure you wish to delete the site for</string>  
+    <string name="tap_done">Tap [Done] after your selections</string>  
+</resources>
