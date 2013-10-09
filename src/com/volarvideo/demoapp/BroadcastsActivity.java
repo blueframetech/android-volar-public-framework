@@ -12,6 +12,7 @@ import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -42,6 +43,7 @@ import com.volarvideo.demoapp.util.Conversions;
 import com.volarvideo.demoapp.util.LocalStorageHelper;
 import com.volarvideo.demoapp.util.VVCMSAPI;
 import com.volarvideo.demoapp.util.VVCMSAPIDelegate;
+import com.volarvideo.mobileapidev.util.CPU;
 
 public class BroadcastsActivity extends VolarActivity implements VVCMSAPIDelegate {
 
