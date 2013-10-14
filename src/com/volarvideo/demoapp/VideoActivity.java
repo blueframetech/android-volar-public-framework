@@ -35,6 +35,10 @@ public class VideoActivity extends Activity {
 
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
+
+		if (!com.volarvideo.mobileapidev.LibsChecker.checkVolarLibs(this))
+			return;
+		
 		setContentView(R.layout.video_activity);
         
         playerView = (VVPlayerView) findViewById(R.id.playerView);

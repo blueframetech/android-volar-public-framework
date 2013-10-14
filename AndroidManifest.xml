@@ -59,6 +59,12 @@
                 <data android:host="volarvideo.com" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.volarvideo.mobileapidev.InitActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden|navigation"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
     </application>
 
 </manifest>
