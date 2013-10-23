@@ -19,6 +19,7 @@ public class VideoActivity extends Activity {
 	
 	private VVMoviePlayerController controller;
 	private VVPlayerView playerView;
+	private static boolean forcedUpdate = false;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -36,8 +37,11 @@ public class VideoActivity extends Activity {
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 
-		if (!com.volarvideo.mobileapidev.LibsChecker.checkVolarLibs(this))
+		if (!forcedUpdate) { 
+			com.volarvideo.mobileapidev.LibsChecker.checkVolarLibs(this, true);
+			forcedUpdate = true;
 			return;
+		}
 		
 		setContentView(R.layout.video_activity);
         
