@@ -15,7 +15,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.widget.Toast;
 
-import com.androidtools.Networking;
+import com.androidtools.networking.Networking;
 import com.volarvideo.demoapp.models.Broadcast;
 import com.volarvideo.demoapp.models.Broadcast.BroadcastStatus;
 
