@@ -1,5 +1,3 @@
 .settings
-bin/**
+bin
 gen
-
-!.gitkeep
