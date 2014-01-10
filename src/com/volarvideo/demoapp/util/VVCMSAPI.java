@@ -286,7 +286,8 @@ public class VVCMSAPI {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return new DomainUnreachableException();
+			if(!e.getMessage().contains("SSLPeerUnverifiedException"))
+				return new DomainUnreachableException();
 		}
 		
 		return null;
