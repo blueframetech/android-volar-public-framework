@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/searchContainer"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"
+   android:padding="5dp"
+   android:background="@drawable/title_gradient" >
+   <EditText
+       android:id="@+id/mediaSearch"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:paddingRight="35dp"
+       android:focusable="true"
+       android:focusableInTouchMode="true"
+	   android:inputType="textFilter|textNoSuggestions"
+       android:singleLine="true"
+       android:imeOptions="actionSearch"
+       android:hint="@string/search" />
+   <ImageView 
+       android:id="@+id/clearSearch"
+       android:layout_width="25dp"
+       android:layout_height="25dp"
+       android:layout_marginRight="10dp"
+       android:layout_alignRight="@id/mediaSearch"
+       android:layout_centerVertical="true"
+       android:src="@drawable/search_clear" />
+</RelativeLayout>

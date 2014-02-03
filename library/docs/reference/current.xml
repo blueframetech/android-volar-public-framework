@@ -1,0 +1,1092 @@
+<api>
+<package name="com.volarvideo.mobilesdk"
+>
+<class name="InitActivity"
+ extends="Activity"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="InitActivity"
+ type="com.volarvideo.mobilesdk.InitActivity"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+</class>
+<class name="LibsChecker"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="LibsChecker"
+ type="com.volarvideo.mobilesdk.LibsChecker"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="checkVolarLibs"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="activity" type="Activity">
+</parameter>
+</method>
+<method name="checkVolarLibs"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="activity" type="Activity">
+</parameter>
+<parameter name="forceUpdate" type="boolean">
+</parameter>
+</method>
+</class>
+</package>
+<package name="com.volarvideo.mobilesdk.api"
+>
+<class name="VVCMSAPI"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSAPI"
+ type="com.volarvideo.mobilesdk.api.VVCMSAPI"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="authenticationRequestForDomain"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="domain" type="java.lang.String">
+</parameter>
+<parameter name="uname" type="java.lang.String">
+</parameter>
+<parameter name="pwd" type="java.lang.String">
+</parameter>
+</method>
+<method name="authenticationRequestForDomainWithSlug"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="slug" type="java.lang.String">
+</parameter>
+<parameter name="domain" type="java.lang.String">
+</parameter>
+<parameter name="uname" type="java.lang.String">
+</parameter>
+<parameter name="pwd" type="java.lang.String">
+</parameter>
+</method>
+<method name="logout"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="requestBroadcastsWithStatus"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="status" type="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus">
+</parameter>
+<parameter name="page" type="int">
+</parameter>
+<parameter name="resultsPerPage" type="int">
+</parameter>
+</method>
+<method name="requestDomain"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="domain" type="java.lang.String">
+</parameter>
+</method>
+<method name="setCurrentSiteIndex"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="index" type="int">
+</parameter>
+</method>
+<method name="setDelegate"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="d" type="com.volarvideo.mobilesdk.api.VVCMSAPIDelegate">
+</parameter>
+</method>
+<method name="siteIndex"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="siteName"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="siteNames"
+ return="java.lang.String[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<class name="VVCMSAPI.BadRequestException"
+ extends="java.lang.Exception"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSAPI.BadRequestException"
+ type="com.volarvideo.mobilesdk.api.VVCMSAPI.BadRequestException"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+</class>
+<class name="VVCMSAPI.DomainUnreachableException"
+ extends="java.lang.Exception"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSAPI.DomainUnreachableException"
+ type="com.volarvideo.mobilesdk.api.VVCMSAPI.DomainUnreachableException"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+</class>
+<class name="VVCMSAPI.InvalidDelegateException"
+ extends="java.lang.Exception"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSAPI.InvalidDelegateException"
+ type="com.volarvideo.mobilesdk.api.VVCMSAPI.InvalidDelegateException"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+</class>
+<class name="VVCMSAPI.InvalidDomainURLException"
+ extends="java.lang.Exception"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSAPI.InvalidDomainURLException"
+ type="com.volarvideo.mobilesdk.api.VVCMSAPI.InvalidDomainURLException"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+</class>
+<class name="VVCMSAPI.NoDomainURLException"
+ extends="java.lang.Exception"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSAPI.NoDomainURLException"
+ type="com.volarvideo.mobilesdk.api.VVCMSAPI.NoDomainURLException"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+</class>
+<class name="VVCMSAPI.NotLoggedInException"
+ extends="java.lang.Exception"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSAPI.NotLoggedInException"
+ type="com.volarvideo.mobilesdk.api.VVCMSAPI.NotLoggedInException"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+</class>
+<class name="VVCMSAPI.UnknownEndpointException"
+ extends="java.lang.Exception"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSAPI.UnknownEndpointException"
+ type="com.volarvideo.mobilesdk.api.VVCMSAPI.UnknownEndpointException"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+</class>
+<interface name="VVCMSAPIDelegate"
+ abstract="true"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="authenticationRequestDidFinish"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="api" type="com.volarvideo.mobilesdk.api.VVCMSAPI">
+</parameter>
+<parameter name="e" type="java.lang.Exception">
+</parameter>
+</method>
+<method name="domainRequestComplete"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="api" type="com.volarvideo.mobilesdk.api.VVCMSAPI">
+</parameter>
+<parameter name="domain" type="java.lang.String">
+</parameter>
+<parameter name="e" type="java.lang.Exception">
+</parameter>
+</method>
+<method name="logoutRequestDidFinish"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="api" type="com.volarvideo.mobilesdk.api.VVCMSAPI">
+</parameter>
+<parameter name="e" type="java.lang.Exception">
+</parameter>
+</method>
+<method name="requestForBroadcastsOfStatusNameComplete"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="api" type="com.volarvideo.mobilesdk.api.VVCMSAPI">
+</parameter>
+<parameter name="status" type="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus">
+</parameter>
+<parameter name="events" type="java.util.List&lt;com.volarvideo.mobilesdk.models.VVCMSBroadcast&gt;">
+</parameter>
+<parameter name="e" type="java.lang.Exception">
+</parameter>
+</method>
+</interface>
+</package>
+<package name="com.volarvideo.mobilesdk.models"
+>
+<class name="VVCMSBroadcast"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSBroadcast"
+ type="com.volarvideo.mobilesdk.models.VVCMSBroadcast"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<constructor name="VVCMSBroadcast"
+ type="com.volarvideo.mobilesdk.models.VVCMSBroadcast"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="json" type="JSONObject">
+</parameter>
+</constructor>
+<field name="audioOnly"
+ type="boolean"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="authorName"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="averageReview"
+ type="double"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="description"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="editDate"
+ type="java.util.Date"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="id"
+ type="int"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="isStreaming"
+ type="boolean"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="numberOfReviews"
+ type="int"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="progress"
+ type="double"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="startDate"
+ type="java.util.Date"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="status"
+ type="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="thumbnailURL"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="title"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="url"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="userReview"
+ type="double"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="vmapURL"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="VVCMSBroadcast.BroadcastStatus"
+ extends="java.lang.Enum"
+ abstract="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="fromString"
+ return="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="str" type="java.lang.String">
+</parameter>
+</method>
+<method name="valueOf"
+ return="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="name" type="java.lang.String">
+</parameter>
+</method>
+<method name="values"
+ return="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus[]"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+</package>
+<package name="com.volarvideo.mobilesdk.vplayer"
+>
+<class name="VVPlayerView"
+ extends="RelativeLayout"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVPlayerView"
+ type="com.volarvideo.mobilesdk.vplayer.VVPlayerView"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="ctx" type="Context">
+</parameter>
+</constructor>
+<constructor name="VVPlayerView"
+ type="com.volarvideo.mobilesdk.vplayer.VVPlayerView"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="ctx" type="Context">
+</parameter>
+<parameter name="attrs" type="AttributeSet">
+</parameter>
+</constructor>
+<constructor name="VVPlayerView"
+ type="com.volarvideo.mobilesdk.vplayer.VVPlayerView"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="ctx" type="Context">
+</parameter>
+<parameter name="attrs" type="AttributeSet">
+</parameter>
+<parameter name="defStyle" type="int">
+</parameter>
+</constructor>
+<method name="onClick"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="v" type="View">
+</parameter>
+</method>
+<method name="onFFBuffering"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="p" type="FFmpegPlayer">
+</parameter>
+<parameter name="buffering" type="boolean">
+</parameter>
+</method>
+<method name="onFFDataSourceLoaded"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="err" type="java.lang.Exception">
+</parameter>
+<parameter name="streams" type="FFmpegStreamInfo[]">
+</parameter>
+</method>
+<method name="onFFPause"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="err" type="NotPlayingException">
+</parameter>
+</method>
+<method name="onFFQosUpdate"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="info" type="java.util.Map&lt;java.lang.String, java.lang.String&gt;">
+</parameter>
+</method>
+<method name="onFFResume"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="result" type="NotPlayingException">
+</parameter>
+</method>
+<method name="onFFSeeked"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="result" type="NotPlayingException">
+</parameter>
+</method>
+<method name="onFFStop"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="onFFUpdateTime"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="currentTimeUs" type="long">
+</parameter>
+<parameter name="videoDurationUs" type="long">
+</parameter>
+<parameter name="isFinished" type="boolean">
+</parameter>
+</method>
+<method name="onFFVideoSizeChanged"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="newWidth" type="int">
+</parameter>
+<parameter name="newHeight" type="int">
+</parameter>
+</method>
+<method name="onItemSelected"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="parentView" type="&lt;any&gt;">
+</parameter>
+<parameter name="selectedItemView" type="View">
+</parameter>
+<parameter name="position" type="int">
+</parameter>
+<parameter name="id" type="long">
+</parameter>
+</method>
+<method name="onNothingSelected"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="arg0" type="&lt;any&gt;">
+</parameter>
+</method>
+<method name="onProgressChange"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="finished" type="boolean">
+</parameter>
+<parameter name="currentTimeUs" type="long">
+</parameter>
+<parameter name="durationUs" type="long">
+</parameter>
+</method>
+<method name="onTouch"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="v" type="View">
+</parameter>
+<parameter name="event" type="MotionEvent">
+</parameter>
+</method>
+<method name="toggleQosOverlay"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<class name="VolarPlayerController"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<method name="inAdBreak"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="isLiveContent"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="load"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="pause"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="playing"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="resume"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="seek"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="seconds" type="double">
+</parameter>
+</method>
+<method name="shutdown"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+</class>
+<class name="VolarPlayerController.Builder"
+ extends="java.lang.Object"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VolarPlayerController.Builder"
+ type="com.volarvideo.mobilesdk.vplayer.VolarPlayerController.Builder"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="ctx" type="Context">
+</parameter>
+</constructor>
+<method name="build"
+ return="com.volarvideo.mobilesdk.vplayer.VolarPlayerController"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="load"
+ return="com.volarvideo.mobilesdk.vplayer.VolarPlayerController"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="setAutoPlay"
+ return="com.volarvideo.mobilesdk.vplayer.VolarPlayerController.Builder"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="autoPlay" type="boolean">
+</parameter>
+</method>
+<method name="setPlayerView"
+ return="com.volarvideo.mobilesdk.vplayer.VolarPlayerController.Builder"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="view" type="com.volarvideo.mobilesdk.vplayer.VVPlayerView">
+</parameter>
+</method>
+<method name="setVmapURI"
+ return="com.volarvideo.mobilesdk.vplayer.VolarPlayerController.Builder"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="uri" type="java.lang.String">
+</parameter>
+</method>
+</class>
+</package>
+</api>

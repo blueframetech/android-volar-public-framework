@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/title_gradient" >
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:weightSum="2" >
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="1" />
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@drawable/black_bg"
+			android:layout_weight="1" />	
+	</LinearLayout>
+	<ImageView
+	    android:id="@+id/imageTitle"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_margin="5dp"
+	    android:scaleType="fitCenter" />
+	<ImageView
+	    android:layout_width="69dp"
+	    android:layout_height="25dp"
+	    android:layout_marginRight="5dp"
+	    android:layout_alignParentRight="true"
+	    android:layout_centerVertical="true"
+	    android:src="@drawable/app_logo" />
+	<Button
+	    android:id="@+id/leftButton"
+	    android:layout_width="wrap_content"
+	    android:layout_height="match_parent"
+	    android:paddingLeft="10dp"
+	    android:paddingRight="10dp"
+	    android:layout_margin="5dp"
+	    android:visibility="gone"
+	    android:textColor="@color/white"
+	    android:background="@drawable/title_bar_button_selector" />
+</RelativeLayout>

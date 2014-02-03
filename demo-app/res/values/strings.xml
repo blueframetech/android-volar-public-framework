@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- App -->
+    <string name="app_name">DemoApp</string>
+    
+    <!-- Dialogs -->
+    <string name="loading">Loading&#8230;</string>
+    
+    <!-- Misc -->
+    <string name="upcoming">Upcoming</string>
+    <string name="live">Live</string>
+    <string name="archived">Archived</string>
+    <string name="search">Search</string>
+    <string name="invalid_broadcast">Broadcast is \'Upcoming\'</string>
+</resources>

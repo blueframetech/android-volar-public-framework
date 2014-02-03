@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SeekerStyle" parent="android:Widget"></style>
+	<style name="WindowTitleBackground">
+		<item name="android:background">@drawable/title_gradient</item>                  
+	</style>
+</resources>

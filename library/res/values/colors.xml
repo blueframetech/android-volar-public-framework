@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="dark_grey">#545454</color>
+    <color name="banner_grey">#acacac</color>
+    <color name="trans">#00000000</color>
+    <color name="trans_white">#77FFFFFF</color>
+    <color name="trans_black">#80000000</color>
+    
+    <drawable name="white_bg">#ffffff</drawable>
+    <drawable name="black_bg">#000000</drawable>
+    <drawable name="trans_grey_bg">#EEa0a0a0</drawable>
+    <drawable name="trans_black_bg">#CC000000</drawable>
+    <drawable name="feint_black_bg">#33000000</drawable>
+</resources>
