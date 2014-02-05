@@ -48,12 +48,10 @@ public class VideoActivity extends Activity {
 		setContentView(R.layout.video_activity);
         
         playerView = (VVPlayerView) findViewById(R.id.playerView);
-        
-		setupPlayer();
 	}
 
 
-	private void setupPlayer() {
+	private void loadPlayer() {
 		Intent intent = getIntent();
 		Uri uri = intent.getData();
 		String vmapURL;
@@ -103,13 +101,15 @@ public class VideoActivity extends Activity {
 	@Override
 	protected void onPause() {
 		super.onPause();
+		
 		if(player != null)
 			player.shutdown();
-		finish();
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
+		
+		loadPlayer();
 	}
 }
