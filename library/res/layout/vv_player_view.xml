@@ -28,18 +28,32 @@
             android:layout_weight="1" />
     </LinearLayout>
 
-    <com.volarvideo.mobilesdk.vplayer.VVSurfaceView
-        android:id="@+id/video_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:layout_below="@+id/streams" />
-    
+    <RelativeLayout
+        android:id="@+id/surfaces_rel_layout"
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/streams">
+        <com.volarvideo.mobilesdk.vplayer.VVSurfaceView
+            android:id="@+id/initial_video_surface"
+            android:visibility="visible"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </RelativeLayout>
+
     <ImageView
         android:id="@+id/splash_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitCenter" />
+    
+    <Spinner 
+        android:id="@+id/bitrate_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="6dp"
+        android:layout_alignParentRight="true" />
 
 
     <RelativeLayout

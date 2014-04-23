@@ -477,13 +477,11 @@ Summary:
             
             
             
-            void
+            Surface
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFBuffering(FFmpegPlayer, boolean)">onFFBuffering</a></span>(FFmpegPlayer p, boolean buffering)
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFAcquireSurface(FFmpegPlayer)">onFFAcquireSurface</a></span>(FFmpegPlayer player)
         
-        <div class="jd-descrdiv">Not intended for general use.</div>
-  
   </td></tr>
 
 
@@ -498,7 +496,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFDataSourceLoaded(java.lang.Exception, FFmpegStreamInfo[])">onFFDataSourceLoaded</a></span>(Exception err, FFmpegStreamInfo[] streams)
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFBuffering(FFmpegPlayer, boolean)">onFFBuffering</a></span>(FFmpegPlayer player, boolean buffering)
         
         <div class="jd-descrdiv">Not intended for general use.</div>
   
@@ -516,7 +514,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFPause(NotPlayingException)">onFFPause</a></span>(NotPlayingException err)
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFDataSourceLoaded(FFmpegPlayer, java.lang.Exception, FFmpegStreamInfo[])">onFFDataSourceLoaded</a></span>(FFmpegPlayer player, Exception err, FFmpegStreamInfo[] streams)
         
         <div class="jd-descrdiv">Not intended for general use.</div>
   
@@ -534,7 +532,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFQosUpdate(java.util.Map<java.lang.String, java.lang.String>)">onFFQosUpdate</a></span>(Map&lt;String,&nbsp;String&gt; info)
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFPause(FFmpegPlayer, NotPlayingException)">onFFPause</a></span>(FFmpegPlayer player, NotPlayingException err)
         
         <div class="jd-descrdiv">Not intended for general use.</div>
   
@@ -552,10 +550,8 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFResume(NotPlayingException)">onFFResume</a></span>(NotPlayingException result)
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFPlayerDied(FFmpegPlayer)">onFFPlayerDied</a></span>(FFmpegPlayer player)
         
-        <div class="jd-descrdiv">Not intended for general use.</div>
-  
   </td></tr>
 
 
@@ -570,7 +566,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFSeeked(NotPlayingException)">onFFSeeked</a></span>(NotPlayingException result)
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFQosUpdate(FFmpegPlayer, java.util.Map<java.lang.String, java.lang.String>)">onFFQosUpdate</a></span>(FFmpegPlayer player, Map&lt;String,&nbsp;String&gt; info)
         
         <div class="jd-descrdiv">Not intended for general use.</div>
   
@@ -588,10 +584,8 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFStop()">onFFStop</a></span>()
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFReleaseSurface(FFmpegPlayer, Surface)">onFFReleaseSurface</a></span>(FFmpegPlayer player, Surface surface)
         
-        <div class="jd-descrdiv">Not intended for general use.</div>
-  
   </td></tr>
 
 
@@ -606,7 +600,7 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFUpdateTime(long, long, boolean)">onFFUpdateTime</a></span>(long currentTimeUs, long videoDurationUs, boolean isFinished)
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFResume(FFmpegPlayer, NotPlayingException)">onFFResume</a></span>(FFmpegPlayer player, NotPlayingException result)
         
         <div class="jd-descrdiv">Not intended for general use.</div>
   
@@ -624,7 +618,39 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFVideoSizeChanged(int, int)">onFFVideoSizeChanged</a></span>(int newWidth, int newHeight)
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFSurfaceChanged(FFmpegPlayer, Surface)">onFFSurfaceChanged</a></span>(FFmpegPlayer player, Surface surface)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFTranscodeIndexChanged(FFmpegPlayer, int)">onFFTranscodeIndexChanged</a></span>(FFmpegPlayer player, int newIndex)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFUpdateTime(FFmpegPlayer, long, long, boolean)">onFFUpdateTime</a></span>(FFmpegPlayer player, long currentTimeUs, long videoDurationUs, boolean isFinished)
         
         <div class="jd-descrdiv">Not intended for general use.</div>
   
@@ -633,6 +659,24 @@ Summary:
 
 	 
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/vplayer/VVPlayerView.html#onFFVideoSizeChanged(FFmpegPlayer, int, int)">onFFVideoSizeChanged</a></span>(FFmpegPlayer player, int newWidth, int newHeight)
+        
+        <div class="jd-descrdiv">Not intended for general use.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -650,7 +694,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -668,7 +712,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -686,7 +730,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -704,7 +748,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol">
             
             
@@ -1081,6 +1125,37 @@ From class
 </div>
 
 
+<a id="onFFAcquireSurface(FFmpegPlayer)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Surface
+      </span>
+      <span class="sympad">onFFAcquireSurface</span>
+      <span class="normal">(FFmpegPlayer player)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
 <a id="onFFBuffering(FFmpegPlayer, boolean)"></a>
 
 <div class="jd-details api apilevel-"> 
@@ -1094,7 +1169,7 @@ From class
         void
       </span>
       <span class="sympad">onFFBuffering</span>
-      <span class="normal">(FFmpegPlayer p, boolean buffering)</span>
+      <span class="normal">(FFmpegPlayer player, boolean buffering)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1113,7 +1188,7 @@ From class
 </div>
 
 
-<a id="onFFDataSourceLoaded(java.lang.Exception, FFmpegStreamInfo[])"></a>
+<a id="onFFDataSourceLoaded(FFmpegPlayer, java.lang.Exception, FFmpegStreamInfo[])"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1126,7 +1201,7 @@ From class
         void
       </span>
       <span class="sympad">onFFDataSourceLoaded</span>
-      <span class="normal">(Exception err, FFmpegStreamInfo[] streams)</span>
+      <span class="normal">(FFmpegPlayer player, Exception err, FFmpegStreamInfo[] streams)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1145,7 +1220,7 @@ From class
 </div>
 
 
-<a id="onFFPause(NotPlayingException)"></a>
+<a id="onFFPause(FFmpegPlayer, NotPlayingException)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1158,7 +1233,7 @@ From class
         void
       </span>
       <span class="sympad">onFFPause</span>
-      <span class="normal">(NotPlayingException err)</span>
+      <span class="normal">(FFmpegPlayer player, NotPlayingException err)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1177,7 +1252,38 @@ From class
 </div>
 
 
-<a id="onFFQosUpdate(java.util.Map<java.lang.String, java.lang.String>)"></a>
+<a id="onFFPlayerDied(FFmpegPlayer)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">onFFPlayerDied</span>
+      <span class="normal">(FFmpegPlayer player)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="onFFQosUpdate(FFmpegPlayer, java.util.Map<java.lang.String, java.lang.String>)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1190,7 +1296,7 @@ From class
         void
       </span>
       <span class="sympad">onFFQosUpdate</span>
-      <span class="normal">(Map&lt;String,&nbsp;String&gt; info)</span>
+      <span class="normal">(FFmpegPlayer player, Map&lt;String,&nbsp;String&gt; info)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1209,7 +1315,38 @@ From class
 </div>
 
 
-<a id="onFFResume(NotPlayingException)"></a>
+<a id="onFFReleaseSurface(FFmpegPlayer, Surface)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">onFFReleaseSurface</span>
+      <span class="normal">(FFmpegPlayer player, Surface surface)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="onFFResume(FFmpegPlayer, NotPlayingException)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1222,7 +1359,7 @@ From class
         void
       </span>
       <span class="sympad">onFFResume</span>
-      <span class="normal">(NotPlayingException result)</span>
+      <span class="normal">(FFmpegPlayer player, NotPlayingException result)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1241,7 +1378,7 @@ From class
 </div>
 
 
-<a id="onFFSeeked(NotPlayingException)"></a>
+<a id="onFFSurfaceChanged(FFmpegPlayer, Surface)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1253,8 +1390,8 @@ From class
          
         void
       </span>
-      <span class="sympad">onFFSeeked</span>
-      <span class="normal">(NotPlayingException result)</span>
+      <span class="sympad">onFFSurfaceChanged</span>
+      <span class="normal">(FFmpegPlayer player, Surface surface)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1266,14 +1403,13 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Not intended for general use.
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
 </div>
 
 
-<a id="onFFStop()"></a>
+<a id="onFFTranscodeIndexChanged(FFmpegPlayer, int)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1285,8 +1421,8 @@ From class
          
         void
       </span>
-      <span class="sympad">onFFStop</span>
-      <span class="normal">()</span>
+      <span class="sympad">onFFTranscodeIndexChanged</span>
+      <span class="normal">(FFmpegPlayer player, int newIndex)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1298,14 +1434,13 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Not intended for general use.
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
 </div>
 
 
-<a id="onFFUpdateTime(long, long, boolean)"></a>
+<a id="onFFUpdateTime(FFmpegPlayer, long, long, boolean)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1318,7 +1453,7 @@ From class
         void
       </span>
       <span class="sympad">onFFUpdateTime</span>
-      <span class="normal">(long currentTimeUs, long videoDurationUs, boolean isFinished)</span>
+      <span class="normal">(FFmpegPlayer player, long currentTimeUs, long videoDurationUs, boolean isFinished)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1337,7 +1472,7 @@ From class
 </div>
 
 
-<a id="onFFVideoSizeChanged(int, int)"></a>
+<a id="onFFVideoSizeChanged(FFmpegPlayer, int, int)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1350,7 +1485,7 @@ From class
         void
       </span>
       <span class="sympad">onFFVideoSizeChanged</span>
-      <span class="normal">(int newWidth, int newHeight)</span>
+      <span class="normal">(FFmpegPlayer player, int newWidth, int newHeight)</span>
     </h4>
       <div class="api-level">
         <div>

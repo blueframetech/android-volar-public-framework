@@ -17,6 +17,66 @@
  visibility="public"
 >
 </constructor>
+<method name="onSurfaceTextureAvailable"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="surface" type="SurfaceTexture">
+</parameter>
+<parameter name="width" type="int">
+</parameter>
+<parameter name="height" type="int">
+</parameter>
+</method>
+<method name="onSurfaceTextureDestroyed"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="surface" type="SurfaceTexture">
+</parameter>
+</method>
+<method name="onSurfaceTextureSizeChanged"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="surface" type="SurfaceTexture">
+</parameter>
+<parameter name="width" type="int">
+</parameter>
+<parameter name="height" type="int">
+</parameter>
+</method>
+<method name="onSurfaceTextureUpdated"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="surface" type="SurfaceTexture">
+</parameter>
+</method>
 </class>
 <class name="LibsChecker"
  extends="java.lang.Object"
@@ -708,6 +768,19 @@
 <parameter name="v" type="View">
 </parameter>
 </method>
+<method name="onFFAcquireSurface"
+ return="Surface"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="player" type="FFmpegPlayer">
+</parameter>
+</method>
 <method name="onFFBuffering"
  return="void"
  abstract="false"
@@ -718,7 +791,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="p" type="FFmpegPlayer">
+<parameter name="player" type="FFmpegPlayer">
 </parameter>
 <parameter name="buffering" type="boolean">
 </parameter>
@@ -733,6 +806,8 @@
  deprecated="not deprecated"
  visibility="public"
 >
+<parameter name="player" type="FFmpegPlayer">
+</parameter>
 <parameter name="err" type="java.lang.Exception">
 </parameter>
 <parameter name="streams" type="FFmpegStreamInfo[]">
@@ -748,7 +823,22 @@
  deprecated="not deprecated"
  visibility="public"
 >
+<parameter name="player" type="FFmpegPlayer">
+</parameter>
 <parameter name="err" type="NotPlayingException">
+</parameter>
+</method>
+<method name="onFFPlayerDied"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="player" type="FFmpegPlayer">
 </parameter>
 </method>
 <method name="onFFQosUpdate"
@@ -761,7 +851,24 @@
  deprecated="not deprecated"
  visibility="public"
 >
+<parameter name="player" type="FFmpegPlayer">
+</parameter>
 <parameter name="info" type="java.util.Map&lt;java.lang.String, java.lang.String&gt;">
+</parameter>
+</method>
+<method name="onFFReleaseSurface"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="player" type="FFmpegPlayer">
+</parameter>
+<parameter name="surface" type="Surface">
 </parameter>
 </method>
 <method name="onFFResume"
@@ -774,10 +881,12 @@
  deprecated="not deprecated"
  visibility="public"
 >
+<parameter name="player" type="FFmpegPlayer">
+</parameter>
 <parameter name="result" type="NotPlayingException">
 </parameter>
 </method>
-<method name="onFFSeeked"
+<method name="onFFSurfaceChanged"
  return="void"
  abstract="false"
  native="false"
@@ -787,10 +896,12 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="result" type="NotPlayingException">
+<parameter name="player" type="FFmpegPlayer">
+</parameter>
+<parameter name="surface" type="Surface">
 </parameter>
 </method>
-<method name="onFFStop"
+<method name="onFFTranscodeIndexChanged"
  return="void"
  abstract="false"
  native="false"
@@ -800,6 +911,10 @@
  deprecated="not deprecated"
  visibility="public"
 >
+<parameter name="player" type="FFmpegPlayer">
+</parameter>
+<parameter name="newIndex" type="int">
+</parameter>
 </method>
 <method name="onFFUpdateTime"
  return="void"
@@ -811,6 +926,8 @@
  deprecated="not deprecated"
  visibility="public"
 >
+<parameter name="player" type="FFmpegPlayer">
+</parameter>
 <parameter name="currentTimeUs" type="long">
 </parameter>
 <parameter name="videoDurationUs" type="long">
@@ -828,6 +945,8 @@
  deprecated="not deprecated"
  visibility="public"
 >
+<parameter name="player" type="FFmpegPlayer">
+</parameter>
 <parameter name="newWidth" type="int">
 </parameter>
 <parameter name="newHeight" type="int">
