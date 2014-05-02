@@ -128,9 +128,13 @@
         android:textStyle="bold"
         android:background="@drawable/trans_black_rounded" />
     
-    <include android:id="@+id/qos_overlay"
-        layout="@layout/qos_overlay"
-        android:visibility="gone" />
+    <com.volarvideo.mobilesdk.util.WrapHeightViewPager
+        android:id="@+id/qos_overlay"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+    	android:background="@drawable/trans_black_rounded"
+    	android:visibility="gone" />
     
     <ProgressBar
         android:id="@+id/loading_view"

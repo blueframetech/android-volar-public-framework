@@ -1,11 +1,23 @@
 ## Release Notes
 
-### Known Issues:
-* Hardware decoders can intermittently fail (need more robust error handling -- fallback to software codecs)
-* Intermittent video load failure (can result in "Ads nots available" or "FFmpegException")
-* Seeking after bitrate switches can result in the current time to be offset by a large number
+### Known Issues (will be addressed in v0.1.07)
+* Technical difficulites is falsely conveyed to the user when a live broadcast stops while playing it
+* Intermittent issue on the Nexus 7 where image is corrupt after a midroll adbreak (typically fixes itself after 20s)
+* Intermittent buffering deadlock in extremely poor network conditions
+* Archived broadcasts that use pre-broadcast test mode may occasionally display incorrect current play time
 * Geoblocked broadcasts can result in endless loading if gps is on but can't find a location
     - Suggested solution (have a timeout and display a dialog that takes you to gps settings to turn on wifi access)
+
+### v0.1.06
+* Fixed problems with hardware decoders intermittently failing
+* Seeking after bitrate switches can no longer result in the current time to be
+  offset by a large number
+* Adds support for multiple weighted VASTs
+* New preroll logic (count / duration)
+* Live tab of demo-app now displays stopped broadcasts
+* Fixed large memory leak which resulted in crash on all devices
+* Fixed crash when tapping resize button on geo-blocked broadcasts
+* Fixed miscellaneous bugs
 
 ### v0.1.05
 * Adds hardware acceleration support (enables 720p on most devices)

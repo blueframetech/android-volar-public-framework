@@ -169,8 +169,12 @@ public class BroadcastsActivity extends VolarActivity implements VVCMSAPIDelegat
     	for(VVCMSBroadcast b: broadcasts) {
     		if(b.status == BroadcastStatus.Scheduled)
     			upcomingBroadcasts.add(b);
-    		else if(b.status == BroadcastStatus.Streaming)
+    		else if(
+    			b.status == BroadcastStatus.Streaming ||
+    			b.status == BroadcastStatus.Stopped
+    		) {
     			liveBroadcasts.add(b);
+    		}
     		else
     			archivedBroadcasts.add(b);
     	}
@@ -205,6 +209,7 @@ public class BroadcastsActivity extends VolarActivity implements VVCMSAPIDelegat
         		switch(broadcast.status) {
         		case Archived:
         		case Streaming:
+        		case Stopped:
 	        		String url = broadcast.vmapURL;
 	        		Intent intent = new Intent(Globals.VIDEO_PLAY_ACTION);
 	        		intent.putExtra(Globals.VIDEO_PLAY_ACTION_EXTRA_URL, url);

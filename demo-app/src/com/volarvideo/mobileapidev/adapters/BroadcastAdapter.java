@@ -104,6 +104,7 @@ public class BroadcastAdapter extends BaseAdapter {
             holder.title = (TextView) row.findViewById(R.id.title);
             holder.timestamp = (TextView) row.findViewById(R.id.timestamp);
             holder.thumb = (ImageView) row.findViewById(R.id.thumb);
+            holder.status = (TextView) row.findViewById(R.id.photos);
             
             row.setTag(holder);
         }
@@ -117,6 +118,14 @@ public class BroadcastAdapter extends BaseAdapter {
         	holder.timestamp.setText(new SimpleDateFormat("MM-d-yy").format(broadcast.startDate));
         else
         	holder.timestamp.setText("");
+        
+        switch(broadcast.status) {
+        case Streaming:
+        case Stopped:
+            holder.status.setVisibility(View.VISIBLE);
+        	holder.status.setText(broadcast.status+"");
+        	break;
+        }
 
     	holder.thumb.setScaleType(ScaleType.FIT_CENTER);
     	holder.thumb.setBackgroundDrawable(null);
@@ -145,6 +154,7 @@ public class BroadcastAdapter extends BaseAdapter {
     	ImageView thumb;
     	TextView title;
     	TextView timestamp;
+    	TextView status;
     }
 
     @SuppressLint("DefaultLocale")
