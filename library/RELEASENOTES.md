@@ -1,12 +1,19 @@
 ## Release Notes
 
-### Known Issues (will be addressed in v0.1.07)
-* Technical difficulites is falsely conveyed to the user when a live broadcast stops while playing it
-* Intermittent issue on the Nexus 7 where image is corrupt after a midroll adbreak (typically fixes itself after 20s)
-* Intermittent buffering deadlock in extremely poor network conditions
-* Archived broadcasts that use pre-broadcast test mode may occasionally display incorrect current play time
-* Geoblocked broadcasts can result in endless loading if gps is on but can't find a location
-    - Suggested solution (have a timeout and display a dialog that takes you to gps settings to turn on wifi access)
+### Known Issues
+* Intermittent crash after 20-30 minutes of continuous ads
+
+### v0.1.07
+* Broadcasts now start up on their own after joining a stopped stream
+* Fixed bug for broadcasts that start in audio-only
+* Added timeout for GPS requests (8 seconds)
+* Archived broadcasts that use pre-broadcast test mode now correctly display the current play time
+* Technical difficulties is no longer falsely conveyed to the user
+* Fixed intermittent buffering deadlock in extremely poor network conditions
+* Fixed intermittent issue on the Nexus 7 where image could be corrupt after a midroll adbreak
+* Better handling of live midrolls when ads aren't available
+* Fixed problem where the first frame after a seek was getting flushed
+
 
 ### v0.1.06
 * Fixed problems with hardware decoders intermittently failing
