@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.11.+'
+    }
+}
+
+apply plugin: 'android-library'
+
+version '0.1.00'
+group 'com.volarvideo.mobilesdk'
+
+
+android {
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_6
+    }
+
+    compileSdkVersion 19
+    buildToolsVersion "19.1.0"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 16
+    }
+
+	sourceSets {
+		main {
+			manifest {
+				srcFile 'AndroidManifest.xml'
+			}
+			java {
+				srcDir 'src'
+			}
+			res {
+				srcDirs 'res'
+			}
+			jniLibs {
+				srcDirs 'libs'
+			}
+		}
+	}
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+
+dependencies {
+	//don't compile into the final build, other apps might use different versions
+    provided 'com.android.support:support-v4:13.0.0'
+
+	compile files( 'libs/commons-io-2.4.jar' )
+	compile files( 'libs/droid7za.jar' )
+	compile files( 'libs/jackson-all-1.9.3.jar' )
+	compile files( 'libs/pusher-java-client-0.3.1.jar-with-dependencies.jar' )
+	compile files( 'libs/spring-android-auth-1.0.1.RELEASE.jar' )
+	compile files( 'libs/spring-android-core-1.0.1.RELEASE.jar' )
+	compile files( 'libs/spring-android-rest-template-1.0.1.RELEASE.jar' )
+}
