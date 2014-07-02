@@ -85,7 +85,10 @@ dependencies {
 	//pusher-java-library has a few dependencies that could cause problems with other projects
 	//for example, if another library in your final application project uses gson
 	//because of that, we include each dependency here on its own to allow for
-	//other projects to exclude them later on
+	//other projects to exclude them later on.
+	//alternatively, you could use maven here to point to a specific version instead of downloading the jar.
+	//maven will automatically download other dependencies and include them here as well.
+	//for example: compile 'com.pusher:pusher-java-client:0.3.1'
 	compile files( 'libs/pusher-java-client-0.3.1.jar' )
 	compile files( 'libs/slf4j-api-1.7.5' )
 	compile 'com.google.code.gson:gson:2.2.4'
