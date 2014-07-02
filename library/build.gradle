@@ -75,7 +75,7 @@ repositories {
 
 dependencies {
 	//this exists in the android sdk manager as support repository
-    compile 'com.android.support:support-v4:13.0.0'
+	compile 'com.android.support:support-v4:13.0.0'
 	
 	compile files( 'libs/android-library.jar' )
 	compile files( 'libs/commons-io-2.4.jar' )
