@@ -1,0 +1,133 @@
+defaultTasks "clean", "build", "uploadArchives"
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.11.+'
+    }
+}
+
+apply plugin: 'maven'
+apply plugin: 'android-library'
+
+
+//set the version for each release
+version '0.1.00'
+group 'com.volarvideo.mobilesdk'
+
+
+android {
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_6
+    }
+
+    compileSdkVersion 19
+    buildToolsVersion "19.1.0"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 16
+    }
+	
+	lintOptions {
+		abortOnError false
+	}
+
+	sourceSets {
+		main {
+			manifest {
+				srcFile 'AndroidManifest.xml'
+			}
+			java {
+				srcDir 'src'
+			}
+			res {
+				srcDirs 'res'
+			}
+			jniLibs {
+				srcDirs 'libs'
+			}
+		}
+	}
+	
+	//meta-inf can cause some issues when utilizing .aar files
+	packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+    }
+	
+	//android-library.jar already includes a build config class, its not needed in the aar
+	packageBuildConfig false
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+
+dependencies {
+	//this exists in the android sdk manager as support repository
+	compile 'com.android.support:support-v4:13.0.0'
+	
+	compile files( 'libs/android-library.jar' )
+	compile files( 'libs/commons-io-2.4.jar' )
+	compile files( 'libs/droid7z.jar' )
+	compile files( 'libs/jackson-all-1.9.3.jar' )
+	
+	//pusher-java-library has a few dependencies that could cause problems with other projects
+	//for example, if another library in your final application project uses gson
+	//because of that, we include each dependency here on its own to allow for
+	//other projects to exclude them later on.
+	//alternatively, you could use maven here to point to a specific version instead of downloading the jar.
+	//maven will automatically download other dependencies and include them here as well.
+	//for example: compile 'com.pusher:pusher-java-client:0.3.1'
+	compile files( 'libs/pusher-java-client-0.3.1.jar' )
+	compile files( 'libs/slf4j-api-1.7.5' )
+	compile 'com.google.code.gson:gson:2.2.4'
+	
+	compile files( 'libs/spring-android-auth-1.0.1.RELEASE.jar' )
+	compile files( 'libs/spring-android-core-1.0.1.RELEASE.jar' )
+	compile files( 'libs/spring-android-rest-template-1.0.1.RELEASE.jar' )
+	
+	
+	/**
+	when using the final compiled .aar file, and your project uses a different version of the support library, or gson, etc
+	you may want to exclude certain dependecies listed above
+	
+	use the following setup to exclude certain libraries that cause problems
+	
+	compile file( 'path/to/final.aar' ) {
+		exclude module: 'support-v4'
+		exclude module: 'gson'
+	}
+	
+	or if the aar exists in maven:
+	
+	compile 'com.volarvideo.mobilesdk:library:0.1+' {
+		exclude module: 'support-v4'
+		exclude module: 'gson'
+	}
+	**/
+}
+
+
+//this task allows you to deploy your final aar to your own maven repository
+uploadArchives {
+    repositories{
+        mavenDeployer {
+            repository( url: uri("http://path.to/maven/repository") )
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "1.10"
+}
