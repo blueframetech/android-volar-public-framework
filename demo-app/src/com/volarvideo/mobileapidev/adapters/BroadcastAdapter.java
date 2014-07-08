@@ -35,9 +35,6 @@ public class BroadcastAdapter extends BaseAdapter {
 	private List<VVCMSBroadcast> filtered = new ArrayList<VVCMSBroadcast>();
 	private Filter filter;
 	
-	private int DOCS_HEIGHT = 60;
-	private int NEWS_HEIGHT = 60;
-	
 	private DisplayImageOptions thumbOptions;
 	private VideoThumbDisplayer displayer;
 
@@ -50,10 +47,6 @@ public class BroadcastAdapter extends BaseAdapter {
     }
     
     private void init() {
-    	DOCS_HEIGHT = (int) Conversions.pixelsToDp(context, DOCS_HEIGHT);
-    	NEWS_HEIGHT = (int) Conversions.pixelsToDp(context, NEWS_HEIGHT);
-        
-
     	displayer = new VideoThumbDisplayer(context, 10);
     	thumbOptions = new DisplayImageOptions.Builder()
     		.cacheInMemory()
@@ -77,6 +70,11 @@ public class BroadcastAdapter extends BaseAdapter {
 			filter = new BroadcastFilter();
         return filter;
     }
+    
+    public void addItems(List<VVCMSBroadcast> b) {
+    	items.addAll(b);
+    	notifyDataSetChanged();
+    }
 
     public Object getItem(int position) {
     	if(visibleItems != null)
@@ -86,7 +84,7 @@ public class BroadcastAdapter extends BaseAdapter {
     }
 
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @SuppressLint("SimpleDateFormat")

@@ -1,7 +1,6 @@
 package com.volarvideo.mobileapidev;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
@@ -35,23 +34,25 @@ import com.nostra13.universalimageloader.core.download.URLConnectionImageDownloa
 import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.volarvideo.mobileapidev.adapters.BroadcastAdapter;
 import com.volarvideo.mobileapidev.util.Conversions;
+import com.volarvideo.mobileapidev.util.EndlessScrollListener;
 import com.volarvideo.mobilesdk.api.VVCMSAPI;
 import com.volarvideo.mobilesdk.api.VVCMSAPIDelegate;
 import com.volarvideo.mobilesdk.models.VVCMSBroadcast;
 import com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus;
+import com.volarvideo.mobilesdk.util.Log;
 
 @SuppressWarnings("deprecation")
 public class BroadcastsActivity extends VolarActivity implements VVCMSAPIDelegate {
 
 	public static final String VolarContentDomain = "vcloud.volarvideo.com";
-	
+
 	private VVCMSAPI api = new VVCMSAPI();
 	private Button upcomingButton, liveButton, archivedButton;
 	private ListView listView;
-	private List<VVCMSBroadcast> upcomingBroadcasts = new ArrayList<VVCMSBroadcast>();
-	private List<VVCMSBroadcast> liveBroadcasts = new ArrayList<VVCMSBroadcast>();
-	private List<VVCMSBroadcast> archivedBroadcasts = new ArrayList<VVCMSBroadcast>();
-	private BroadcastAdapter currAdapter, upcomingAdapter, liveAdapter, archivedAdapter;
+	private View listFooter;
+	private EditText searchEdit;
+	private BroadcastAdapter adapter;
+	private final int RESULTS_PER_PAGE = 50;
 	protected int FOOTER_HEIGHT = 45; // dp
 	
     /** Called when the activity is first created. */
@@ -78,9 +79,9 @@ public class BroadcastsActivity extends VolarActivity implements VVCMSAPIDelegat
 		getWindow().findViewById(R.id.leftButton).setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(api.siteName() != null) {
+				if(api.getCurrentSite() != null) {
 	        		showDialog(DIALOG_LOADING);
-					api.requestBroadcastsWithStatus(BroadcastStatus.All, 0, 0);
+	        		getData(1);
 				}
 			}
 		});
@@ -88,6 +89,9 @@ public class BroadcastsActivity extends VolarActivity implements VVCMSAPIDelegat
 
     private void setupViews() {
 		listView = (ListView) findViewById(R.id.mediaList);
+		View tmpView = getLayoutInflater().inflate(R.layout.media_loading, null);
+		listFooter = tmpView.findViewById(R.id.progress);
+		listView.addFooterView(tmpView);
 		
 		findViewById(R.id.mediaFooter).setVisibility(View.VISIBLE);
     	FOOTER_HEIGHT = (int) Conversions.pixelsToDp(this, FOOTER_HEIGHT);
@@ -101,12 +105,12 @@ public class BroadcastsActivity extends VolarActivity implements VVCMSAPIDelegat
 		upcomingButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(currAdapter != upcomingAdapter && upcomingAdapter.getCount() > 0) {
+				if(!upcomingButton.isSelected()) {
 					upcomingButton.setSelected(true);
 					liveButton.setSelected(false);
 					archivedButton.setSelected(false);
-					currAdapter = upcomingAdapter;
-					listView.setAdapter(currAdapter);
+		    		showDialog(DIALOG_LOADING);
+					getData(1);
 				}
 			}
 		});
@@ -117,12 +121,12 @@ public class BroadcastsActivity extends VolarActivity implements VVCMSAPIDelegat
 		liveButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(currAdapter != liveAdapter && liveAdapter.getCount() > 0) {
+				if(!liveButton.isSelected()) {
 					upcomingButton.setSelected(false);
 					liveButton.setSelected(true);
 					archivedButton.setSelected(false);
-					currAdapter = liveAdapter;
-					listView.setAdapter(currAdapter);
+		    		showDialog(DIALOG_LOADING);
+					getData(1);
 				}
 			}
 		});
@@ -130,26 +134,27 @@ public class BroadcastsActivity extends VolarActivity implements VVCMSAPIDelegat
 		archivedButton = (Button) findViewById(R.id.archived);
 		archivedButton.setText(getString(R.string.archived)+" (0)");
 		archivedButton.setEnabled(false);
+		archivedButton.setSelected(true);
 		archivedButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(currAdapter != archivedAdapter && archivedAdapter.getCount() > 0) {
+				if(!archivedButton.isSelected()) {
 					upcomingButton.setSelected(false);
 					liveButton.setSelected(false);
 					archivedButton.setSelected(true);
-					currAdapter = archivedAdapter;
-					listView.setAdapter(currAdapter);
+		    		showDialog(DIALOG_LOADING);
+					getData(1);
 				}
 			}
 		});
 
-		final EditText searchEdit = (EditText)findViewById(R.id.mediaSearch);
+		searchEdit = (EditText)findViewById(R.id.mediaSearch);
 		TextWatcher watcher = new TextWatcher() {
 		    public void afterTextChanged(Editable s) { }
 		    public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 		    public void onTextChanged(CharSequence s, int start, int before, int count) {
-		    	if(currAdapter != null)
-		    		currAdapter.getFilter().filter(s);
+		    	if(adapter != null)
+		    		adapter.getFilter().filter(s);
 		    }
 		};
 		searchEdit.addTextChangedListener(watcher);
@@ -162,50 +167,69 @@ public class BroadcastsActivity extends VolarActivity implements VVCMSAPIDelegat
 		});
     }
     
-    private void setupBroadcasts(List<VVCMSBroadcast> broadcasts) {
-    	upcomingBroadcasts = new ArrayList<VVCMSBroadcast>();
-    	liveBroadcasts = new ArrayList<VVCMSBroadcast>();
-    	archivedBroadcasts = new ArrayList<VVCMSBroadcast>();
-    	for(VVCMSBroadcast b: broadcasts) {
-    		if(b.status == BroadcastStatus.Scheduled)
-    			upcomingBroadcasts.add(b);
-    		else if(
-    			b.status == BroadcastStatus.Streaming ||
-    			b.status == BroadcastStatus.Stopped
-    		) {
-    			liveBroadcasts.add(b);
-    		}
-    		else
-    			archivedBroadcasts.add(b);
+    private void getData(int page) {
+		BroadcastStatus status = null;
+		if(upcomingButton.isSelected())
+			status = BroadcastStatus.Scheduled;
+		else if(liveButton.isSelected())
+			status = BroadcastStatus.Streaming;
+		else
+			status = BroadcastStatus.Archived;
+		getData(status, page);
+    }
+    
+    private void getData(BroadcastStatus status, int page) {
+		api.requestBroadcastsWithStatus(status, page, RESULTS_PER_PAGE);
+    }
+
+    
+    private void setupBroadcasts(
+    	final BroadcastStatus status, List<VVCMSBroadcast> b, int page, final int totalPages, int totalResults
+    ) {
+    	if(page == 1) {
+    		adapter = new BroadcastAdapter(BroadcastsActivity.this, b);
+        	listView.setAdapter(adapter);	
+    		listView.setOnScrollListener(new EndlessScrollListener(RESULTS_PER_PAGE) {
+    			@Override
+    			public void onLoadMore(int nextPage, int totalItemsCount) {
+    				if(nextPage <= totalPages) {
+    					listFooter.setVisibility(View.VISIBLE);
+    					getData(status, nextPage);
+    				}
+    			}
+    		});
+    	}
+    	else {
+			listFooter.setVisibility(View.GONE);
+    		adapter.addItems(b);
+    		adapter.getFilter().filter(searchEdit.getText()+"");
     	}
 
-		upcomingAdapter = new BroadcastAdapter(BroadcastsActivity.this, upcomingBroadcasts);
-		liveAdapter = new BroadcastAdapter(BroadcastsActivity.this, liveBroadcasts);
-		archivedAdapter = new BroadcastAdapter(BroadcastsActivity.this, archivedBroadcasts);
 		
-		upcomingButton.setText(getString(R.string.upcoming)+" (0)");
-		liveButton.setText(getString(R.string.live)+" (0)");
-		archivedButton.setText(getString(R.string.archived)+" (0)");
-		
-		upcomingButton.setText(getString(R.string.upcoming)+" ("+upcomingBroadcasts.size()+")");
-		upcomingButton.setEnabled(true);
-			
-		liveButton.setText(getString(R.string.live)+" ("+liveBroadcasts.size()+")");
-		liveButton.setEnabled(true);
-		
-		archivedButton.setText(getString(R.string.archived)+" ("+archivedBroadcasts.size()+")");
-		archivedButton.setEnabled(true);
+		upcomingButton.setText(getString(R.string.upcoming));
+		liveButton.setText(getString(R.string.live));
+		archivedButton.setText(getString(R.string.archived));
+		switch(status) {
+		case Scheduled:
+			upcomingButton.setText(upcomingButton.getText()+" ("+totalResults+")");
+			break;
+		case Stopped:
+		case Streaming:
+			liveButton.setText(liveButton.getText()+" ("+totalResults+")");
+			break;
+		case Archived:
+			archivedButton.setText(archivedButton.getText()+" ("+totalResults+")");
+			break;
+		}
 
-		upcomingButton.setSelected(false);
-		liveButton.setSelected(false);
-		archivedButton.setSelected(true);
-		currAdapter = archivedAdapter;
-    	listView.setAdapter(currAdapter);
+		upcomingButton.setEnabled(true);
+		liveButton.setEnabled(true);
+		archivedButton.setEnabled(true);
     	
         listView.setOnItemClickListener(new OnItemClickListener() {
         	@Override
         	public void onItemClick(AdapterView<?> a, View v, int pos, long arg3) {
-        		VVCMSBroadcast broadcast = (VVCMSBroadcast) currAdapter.getItem(pos);
+        		VVCMSBroadcast broadcast = (VVCMSBroadcast) adapter.getItem(pos);
         		switch(broadcast.status) {
         		case Archived:
         		case Streaming:
@@ -213,6 +237,9 @@ public class BroadcastsActivity extends VolarActivity implements VVCMSAPIDelegat
 	        		String url = broadcast.vmapURL;
 	        		Intent intent = new Intent(Globals.VIDEO_PLAY_ACTION);
 	        		intent.putExtra(Globals.VIDEO_PLAY_ACTION_EXTRA_URL, url);
+		       		// String encryptionKey = cursor.getString(Globals.PROJECTION_ENCRYPTION_KEY);
+		       		// if (encryptionKey != null) {
+		       		// 	intent.putExtra(Globals.VIDEO_PLAY_ACTION_EXTRA_ENCRYPTION_KEY, encryptionKey);
 	        		startActivity(intent);
         			break;
         		default:
@@ -270,9 +297,7 @@ public class BroadcastsActivity extends VolarActivity implements VVCMSAPIDelegat
 	}
 
 	@Override
-	public void domainRequestComplete(VVCMSAPI api, String domain, Exception e) {
-		
-	}
+	public void domainRequestComplete(VVCMSAPI api, String domain, Exception e) { }
 
 	@Override
 	public void authenticationRequestDidFinish(final VVCMSAPI api, final Exception e) {
@@ -285,23 +310,21 @@ public class BroadcastsActivity extends VolarActivity implements VVCMSAPIDelegat
 					Toast.makeText(BroadcastsActivity.this, "Could not connect to domain", Toast.LENGTH_SHORT).show();
 					return;
 				}
-				setCustomTitle(api.siteName());
-				if(api.siteName() != null)
-					api.requestBroadcastsWithStatus(BroadcastStatus.All, 0, 0);
-				else if(!isFinishing())
-					removeDialog(DIALOG_LOADING);
+				setCustomTitle(api.getCurrentSite().title);
+				getData(1);
 			}
 		});
 	}
 
 	@Override
-	public void logoutRequestDidFinish(VVCMSAPI api, Exception e) {
-		
-	}
+	public void logoutRequestDidFinish(VVCMSAPI api, Exception e) { }
 
 	@Override
 	public void requestForBroadcastsOfStatusNameComplete(VVCMSAPI api,
-			BroadcastStatus status, final List<VVCMSBroadcast> events, Exception e) {
+		final BroadcastStatus status, final int page,
+		final int totalPages, final int totalResults,
+		final List<VVCMSBroadcast> events, Exception e
+	) {
 		runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
@@ -309,7 +332,7 @@ public class BroadcastsActivity extends VolarActivity implements VVCMSAPIDelegat
 					removeDialog(DIALOG_LOADING);
 
 				if(events != null)
-					setupBroadcasts(events);
+					setupBroadcasts(status, events, page, totalPages, totalResults);
 			}
 		});
 	}

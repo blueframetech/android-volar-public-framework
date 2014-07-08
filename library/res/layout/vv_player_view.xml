@@ -56,15 +56,13 @@
         android:layout_alignParentRight="true" />
 
 
-    <RelativeLayout
+    <com.volarvideo.mobilesdk.util.AutoLayoutView
         android:id="@+id/controls"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_margin="6dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
-        android:paddingTop="2dp"
-        android:paddingBottom="2dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/controls_backdrop"
         android:visibility="gone" >
@@ -75,16 +73,24 @@
             android:layout_height="wrap_content"
             android:background="@drawable/controls_play_button"
             android:layout_centerVertical="true" />
-        
-        <TextView
-            android:id="@+id/left_time"
-            android:layout_width="45dp"
+
+        <ImageView
+            android:id="@+id/rewind"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/play_pause"
-            android:layout_centerVertical="true"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="11dp" />
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/controls_rewind_button"
+            android:layout_centerVertical="true" />
+
+        <ImageView
+            android:id="@+id/slowmo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/rewind"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/controls_slowmo_button"
+            android:layout_centerVertical="true" />
 
         <com.volarvideo.mobilesdk.util.SeekerView
             android:id="@+id/seeker_view"
@@ -92,14 +98,16 @@
             android:layout_height="36dp"
             android:layout_margin="5dp"
             android:visibility="gone"
-            android:layout_toRightOf="@id/left_time"
-            android:layout_toLeftOf="@+id/right_time"
+            android:layout_toRightOf="@id/slowmo"
+            android:layout_toLeftOf="@+id/time_text"
             android:layout_centerVertical="true" />
 
         <TextView
-            android:id="@id/right_time"
-            android:layout_width="45dp"
+            android:id="@id/time_text"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:layout_toLeftOf="@+id/scale_button"
             android:layout_centerVertical="true"
             android:gravity="center"
@@ -113,7 +121,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:background="@drawable/controls_scaleup_button" />
-    </RelativeLayout>
+    </com.volarvideo.mobilesdk.util.AutoLayoutView>
     
     <TextView
         android:id="@+id/message"

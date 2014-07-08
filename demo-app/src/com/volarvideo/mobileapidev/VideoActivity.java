@@ -39,8 +39,6 @@ public class VideoActivity extends Activity {
 		getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 		getWindow().setBackgroundDrawable(null);
 
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-
 		if(!LibsChecker.checkVolarLibs(this)) {
 			return;
 		}

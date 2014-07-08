@@ -3,6 +3,15 @@
 ### Known Issues
 * Intermittent crash after 20-30 minutes of continuous ads
 
+### v0.1.08
+* Adds live DVR support
+* Adds slow-mo support
+* Adds 15s rewind button
+* Fixed portrait mode in VVPlayerView
+* Adds Support for custom scheme webstart
+* Added pagination parameters to VVCMSAPI delegate methods
+* Fixed miscellaneous bugs
+
 ### v0.1.07
 * Broadcasts now start up on their own after joining a stopped stream
 * Fixed bug for broadcasts that start in audio-only

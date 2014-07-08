@@ -127,7 +127,7 @@
 <package name="com.volarvideo.mobilesdk.api"
 >
 <class name="VVCMSAPI"
- extends="java.lang.Object"
+ extends="java.util.Observable"
  abstract="false"
  static="false"
  final="false"
@@ -177,6 +177,39 @@
 </parameter>
 <parameter name="pwd" type="java.lang.String">
 </parameter>
+</method>
+<method name="getCopy"
+ return="com.volarvideo.mobilesdk.api.VVCMSAPI"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="getCurrentSite"
+ return="com.volarvideo.mobilesdk.models.VVCMSSite"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="isAuthenticated"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
 </method>
 <method name="logout"
  return="void"
@@ -244,28 +277,6 @@
 >
 <parameter name="d" type="com.volarvideo.mobilesdk.api.VVCMSAPIDelegate">
 </parameter>
-</method>
-<method name="siteIndex"
- return="int"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</method>
-<method name="siteName"
- return="java.lang.String"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
 </method>
 <method name="siteNames"
  return="java.lang.String[]"
@@ -465,6 +476,12 @@
 <parameter name="api" type="com.volarvideo.mobilesdk.api.VVCMSAPI">
 </parameter>
 <parameter name="status" type="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus">
+</parameter>
+<parameter name="page" type="int">
+</parameter>
+<parameter name="totalPages" type="int">
+</parameter>
+<parameter name="totalResults" type="int">
 </parameter>
 <parameter name="events" type="java.util.List&lt;com.volarvideo.mobilesdk.models.VVCMSBroadcast&gt;">
 </parameter>
@@ -707,6 +724,105 @@
  visibility="public"
 >
 </method>
+</class>
+<class name="VVCMSSite"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSSite"
+ type="com.volarvideo.mobilesdk.models.VVCMSSite"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="json" type="JSONObject">
+</parameter>
+</constructor>
+<field name="authURL"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="broadcastsALL"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="broadcastsArchived"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="broadcastsScheduled"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="broadcastsStreaming"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="id"
+ type="int"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="title"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="userURL"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
 </class>
 </package>
 <package name="com.volarvideo.mobilesdk.vplayer"
@@ -1058,6 +1174,17 @@
  visibility="public"
 >
 </method>
+<method name="isShutdown"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
 <method name="load"
  return="void"
  abstract="false"
@@ -1113,6 +1240,19 @@
  visibility="public"
 >
 <parameter name="seconds" type="double">
+</parameter>
+</method>
+<method name="setRate"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="rate" type="double">
 </parameter>
 </method>
 <method name="shutdown"

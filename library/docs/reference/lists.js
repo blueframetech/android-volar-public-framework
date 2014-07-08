@@ -15,9 +15,10 @@ var DATA = [
       { id:13, label:"com.volarvideo.mobilesdk.models", link:"com/volarvideo/mobilesdk/models/package-summary.html", type:"package" },
       { id:14, label:"com.volarvideo.mobilesdk.models.VVCMSBroadcast", link:"com/volarvideo/mobilesdk/models/VVCMSBroadcast.html", type:"class" },
       { id:15, label:"com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus", link:"com/volarvideo/mobilesdk/models/VVCMSBroadcast.BroadcastStatus.html", type:"class" },
-      { id:16, label:"com.volarvideo.mobilesdk.vplayer", link:"com/volarvideo/mobilesdk/vplayer/package-summary.html", type:"package" },
-      { id:17, label:"com.volarvideo.mobilesdk.vplayer.VVPlayerView", link:"com/volarvideo/mobilesdk/vplayer/VVPlayerView.html", type:"class" },
-      { id:18, label:"com.volarvideo.mobilesdk.vplayer.VolarPlayerController", link:"com/volarvideo/mobilesdk/vplayer/VolarPlayerController.html", type:"class" },
-      { id:19, label:"com.volarvideo.mobilesdk.vplayer.VolarPlayerController.Builder", link:"com/volarvideo/mobilesdk/vplayer/VolarPlayerController.Builder.html", type:"class" }
+      { id:16, label:"com.volarvideo.mobilesdk.models.VVCMSSite", link:"com/volarvideo/mobilesdk/models/VVCMSSite.html", type:"class" },
+      { id:17, label:"com.volarvideo.mobilesdk.vplayer", link:"com/volarvideo/mobilesdk/vplayer/package-summary.html", type:"package" },
+      { id:18, label:"com.volarvideo.mobilesdk.vplayer.VVPlayerView", link:"com/volarvideo/mobilesdk/vplayer/VVPlayerView.html", type:"class" },
+      { id:19, label:"com.volarvideo.mobilesdk.vplayer.VolarPlayerController", link:"com/volarvideo/mobilesdk/vplayer/VolarPlayerController.html", type:"class" },
+      { id:20, label:"com.volarvideo.mobilesdk.vplayer.VolarPlayerController.Builder", link:"com/volarvideo/mobilesdk/vplayer/VolarPlayerController.Builder.html", type:"class" }
 
     ];
