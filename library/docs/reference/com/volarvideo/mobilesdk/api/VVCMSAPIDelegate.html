@@ -170,13 +170,10 @@
               
     <li><h2>Exceptions</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.BadRequestException.html">VVCMSAPI.BadRequestException</a></li>
           <li class="api apilevel-"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.DomainUnreachableException.html">VVCMSAPI.DomainUnreachableException</a></li>
-          <li class="api apilevel-"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.InvalidDelegateException.html">VVCMSAPI.InvalidDelegateException</a></li>
-          <li class="api apilevel-"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.InvalidDomainURLException.html">VVCMSAPI.InvalidDomainURLException</a></li>
           <li class="api apilevel-"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.NoDomainURLException.html">VVCMSAPI.NoDomainURLException</a></li>
-          <li class="api apilevel-"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.NotLoggedInException.html">VVCMSAPI.NotLoggedInException</a></li>
           <li class="api apilevel-"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.UnknownEndpointException.html">VVCMSAPI.UnknownEndpointException</a></li>
+          <li class="api apilevel-"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.VVCMSAPIException.html">VVCMSAPI.VVCMSAPIException</a></li>
       </ul>
     </li>
               
@@ -347,7 +344,7 @@
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html#authenticationRequestDidFinish(com.volarvideo.mobilesdk.api.VVCMSAPI, java.lang.Exception)">authenticationRequestDidFinish</a></span>(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> api, Exception e)
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html#checkCredentialsComplete(com.volarvideo.mobilesdk.api.VVCMSAPI, java.lang.Exception)">checkCredentialsComplete</a></span>(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> api, Exception e)
         
   </td></tr>
 
@@ -363,7 +360,7 @@
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html#domainRequestComplete(com.volarvideo.mobilesdk.api.VVCMSAPI, java.lang.String, java.lang.Exception)">domainRequestComplete</a></span>(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> api, String domain, Exception e)
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html#requestForBroadcastsComplete(com.volarvideo.mobilesdk.api.VVCMSAPI, com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus, int, int, int, java.util.List<com.volarvideo.mobilesdk.models.VVCMSBroadcast>, java.lang.Exception)">requestForBroadcastsComplete</a></span>(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> api, <a href="../../../../com/volarvideo/mobilesdk/models/VVCMSBroadcast.BroadcastStatus.html">VVCMSBroadcast.BroadcastStatus</a> status, int page, int totalPages, int totalResults, List&lt;<a href="../../../../com/volarvideo/mobilesdk/models/VVCMSBroadcast.html">VVCMSBroadcast</a>&gt; events, Exception e)
         
   </td></tr>
 
@@ -379,7 +376,7 @@
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html#logoutRequestDidFinish(com.volarvideo.mobilesdk.api.VVCMSAPI, java.lang.Exception)">logoutRequestDidFinish</a></span>(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> api, Exception e)
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html#requestForClipsComplete(com.volarvideo.mobilesdk.api.VVCMSAPI, int, int, int, java.util.List<com.volarvideo.mobilesdk.models.VVCMSClip>, java.lang.Exception)">requestForClipsComplete</a></span>(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> api, int page, int totalPages, int totalResults, List&lt;<a href="../../../../com/volarvideo/mobilesdk/models/VVCMSClip.html">VVCMSClip</a>&gt; clips, Exception e)
         
   </td></tr>
 
@@ -395,7 +392,23 @@
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html#requestForBroadcastsOfStatusNameComplete(com.volarvideo.mobilesdk.api.VVCMSAPI, com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus, int, int, int, java.util.List<com.volarvideo.mobilesdk.models.VVCMSBroadcast>, java.lang.Exception)">requestForBroadcastsOfStatusNameComplete</a></span>(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> api, <a href="../../../../com/volarvideo/mobilesdk/models/VVCMSBroadcast.BroadcastStatus.html">VVCMSBroadcast.BroadcastStatus</a> status, int page, int totalPages, int totalResults, List&lt;<a href="../../../../com/volarvideo/mobilesdk/models/VVCMSBroadcast.html">VVCMSBroadcast</a>&gt; events, Exception e)
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html#requestForSectionsComplete(com.volarvideo.mobilesdk.api.VVCMSAPI, int, int, int, java.util.List<com.volarvideo.mobilesdk.models.VVCMSSection>, java.lang.Exception)">requestForSectionsComplete</a></span>(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> api, int page, int totalPages, int totalResults, List&lt;<a href="../../../../com/volarvideo/mobilesdk/models/VVCMSSection.html">VVCMSSection</a>&gt; sections, Exception e)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            abstract
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html#requestForSitesComplete(com.volarvideo.mobilesdk.api.VVCMSAPI, int, int, int, java.util.List<com.volarvideo.mobilesdk.models.VVCMSSite>, java.lang.Exception)">requestForSitesComplete</a></span>(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> api, int page, int totalPages, int totalResults, List&lt;<a href="../../../../com/volarvideo/mobilesdk/models/VVCMSSite.html">VVCMSSite</a>&gt; sites, Exception e)
         
   </td></tr>
 
@@ -448,7 +461,7 @@
 
 
 
-<a id="authenticationRequestDidFinish(com.volarvideo.mobilesdk.api.VVCMSAPI, java.lang.Exception)"></a>
+<a id="checkCredentialsComplete(com.volarvideo.mobilesdk.api.VVCMSAPI, java.lang.Exception)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -460,7 +473,7 @@
          
         void
       </span>
-      <span class="sympad">authenticationRequestDidFinish</span>
+      <span class="sympad">checkCredentialsComplete</span>
       <span class="normal">(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> api, Exception e)</span>
     </h4>
       <div class="api-level">
@@ -479,7 +492,7 @@
 </div>
 
 
-<a id="domainRequestComplete(com.volarvideo.mobilesdk.api.VVCMSAPI, java.lang.String, java.lang.Exception)"></a>
+<a id="requestForBroadcastsComplete(com.volarvideo.mobilesdk.api.VVCMSAPI, com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus, int, int, int, java.util.List<com.volarvideo.mobilesdk.models.VVCMSBroadcast>, java.lang.Exception)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -491,70 +504,101 @@
          
         void
       </span>
-      <span class="sympad">domainRequestComplete</span>
-      <span class="normal">(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> api, String domain, Exception e)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="logoutRequestDidFinish(com.volarvideo.mobilesdk.api.VVCMSAPI, java.lang.Exception)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        abstract 
-         
-        void
-      </span>
-      <span class="sympad">logoutRequestDidFinish</span>
-      <span class="normal">(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> api, Exception e)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<a id="requestForBroadcastsOfStatusNameComplete(com.volarvideo.mobilesdk.api.VVCMSAPI, com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus, int, int, int, java.util.List<com.volarvideo.mobilesdk.models.VVCMSBroadcast>, java.lang.Exception)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        abstract 
-         
-        void
-      </span>
-      <span class="sympad">requestForBroadcastsOfStatusNameComplete</span>
+      <span class="sympad">requestForBroadcastsComplete</span>
       <span class="normal">(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> api, <a href="../../../../com/volarvideo/mobilesdk/models/VVCMSBroadcast.BroadcastStatus.html">VVCMSBroadcast.BroadcastStatus</a> status, int page, int totalPages, int totalResults, List&lt;<a href="../../../../com/volarvideo/mobilesdk/models/VVCMSBroadcast.html">VVCMSBroadcast</a>&gt; events, Exception e)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="requestForClipsComplete(com.volarvideo.mobilesdk.api.VVCMSAPI, int, int, int, java.util.List<com.volarvideo.mobilesdk.models.VVCMSClip>, java.lang.Exception)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">requestForClipsComplete</span>
+      <span class="normal">(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> api, int page, int totalPages, int totalResults, List&lt;<a href="../../../../com/volarvideo/mobilesdk/models/VVCMSClip.html">VVCMSClip</a>&gt; clips, Exception e)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="requestForSectionsComplete(com.volarvideo.mobilesdk.api.VVCMSAPI, int, int, int, java.util.List<com.volarvideo.mobilesdk.models.VVCMSSection>, java.lang.Exception)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">requestForSectionsComplete</span>
+      <span class="normal">(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> api, int page, int totalPages, int totalResults, List&lt;<a href="../../../../com/volarvideo/mobilesdk/models/VVCMSSection.html">VVCMSSection</a>&gt; sections, Exception e)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="requestForSitesComplete(com.volarvideo.mobilesdk.api.VVCMSAPI, int, int, int, java.util.List<com.volarvideo.mobilesdk.models.VVCMSSite>, java.lang.Exception)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        void
+      </span>
+      <span class="sympad">requestForSitesComplete</span>
+      <span class="normal">(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> api, int page, int totalPages, int totalResults, List&lt;<a href="../../../../com/volarvideo/mobilesdk/models/VVCMSSite.html">VVCMSSite</a>&gt; sites, Exception e)</span>
     </h4>
       <div class="api-level">
         <div>

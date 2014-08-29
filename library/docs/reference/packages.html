@@ -196,12 +196,12 @@
 
 <div class="jd-descr">
 <p><p style="float:right;font-weight:bold; text-align:right;margin-top:-1em;">
-		v0.1.08<br/>(<a href="https://github.com/volarvideo/android-volar-public-framework/blob/master/library/RELEASENOTES.md">Release Notes</a>)
+		v0.1.09<br/>(<a href="https://github.com/volarvideo/android-volar-public-framework/blob/master/library/RELEASENOTES.md">Release Notes</a>)
 	</p>
 	<h1>VolarVideo Android Mobile SDK (Beta)</h1>
 	<p>
 		<br/>
-		Android SDK to query VolarVideo CMS and present content
+		This SDK includes a widget for playing live/archived broadcasts managed by a VolarVideo CMS as well as a wrapper for the API to access the content the Volar system manages.
 	</p>
 
 	<h2>Including the SDK with Eclipse:</h2>
@@ -210,9 +210,27 @@
 		In Eclipse, go to <b>File</b>-><b>Import</b>-><b>Exisiting Android Code into Workspace</b> and browse to the directory you cloned the <b>android-volar-public-framework</b> repository.  Inside, you will find two project folders.  Import the one in the <b>library</b> folder.  You should now have a project in your package explorer called <b>volar-android-mobilesdk</b>.
 		</li>
 		<li>
-		With your project selected, go to <b>Project</b>-><b>Properties</b>.  On the left, select <b>Android</b>.  In the bottom section, click <b>Add...</b> and select <b>volar-andoroid-mobilesdk</b>.
+		With your project selected, go to <b>Project</b>-><b>Properties</b>.  On the left, select <b>Android</b>.  In the bottom section, click <b>Add...</b> and select <b>volar-android-mobilesdk</b>.
 		</li>
 	</ul>
+
+	<h2>Building the SDK for Android Studio:</h2>
+	<p>
+		If your project is built with Android Studio, you will need to build an <b>.aar</b> file to link to. You can build an <b>.aar</b> file using Gradle.
+	</p>
+
+	<ul>
+		<li>
+			If you have gradle installed, from the <b>/library</b> folder, in terminal run: <code>gradle clean build</code>
+		</li>
+		<li>
+			If you want to use the gradle wrapper, from the <b>/library</b> folder, in terminal run: <code>./gradlew clean build</code>
+		</li>
+	</ul>
+
+	<p>
+		The final <b>.aar</b> will be crated in the <b>/library/build/outputs/aar/</b> folder
+	</p>
 
 	<h2>Using the SDK</h2>
 	<p>
@@ -239,7 +257,140 @@
 	<p>
 		And lastly, you will need to add the following snippet to the beginning of any <b>Activity</b> that intends to use <a href="com/volarvideo/mobilesdk/vplayer/VolarPlayerController.html">VolarPlayerController</a>:
 	</p>
-	<pre class="prettyprint"><span class="pln">&nbsp;</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onCreate</span><span class="pun">(</span><span class="typ">Bundle</span><span class="pln"> b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">onCreate</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// Always run checkVolarLibs before using VolarPlayerController</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">com</span><span class="pun">.</span><span class="pln">volarvideo</span><span class="pun">.</span><span class="pln">mobilesdk</span><span class="pun">.</span><span class="typ">LibsChecker</span><span class="pun">.</span><span class="pln">checkVolarLibs</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">))</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">return</span><span class="pun">;</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">// Example player</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">VolarPlayerController</span><span class="pln"> player </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">VolarPlayerController</span><span class="pun">.</span><span class="typ">Builder</span><span class="pun">(</span><span class="pln">context</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">.</span><span class="pln">setVmapURI</span><span class="pun">(</span><span class="pln">vmapURL</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">.</span><span class="pln">setPlayerView</span><span class="pun">(</span><span class="pln">playerView</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">.</span><span class="pln">load</span><span class="pun">();</span><span class="pln"><br>&nbsp;</span><span class="pun">}</span><span class="pln"><br>&nbsp;</span></pre></p>
+
+	<pre>
+public void onCreate(Bundle b) {
+        super.onCreate(b);
+        // Always run checkVolarLibs before using VolarPlayerController
+        if (!com.volarvideo.mobilesdk.LibsChecker.checkVolarLibs(this))
+            return;
+
+        setContentView(R.layout.your_layout);
+
+        playerView = (VVPlayerView) findViewById(R.id.playerView);
+
+        // Example player
+        VolarPlayerController player = new VolarPlayerController.Builder(context)
+            .setVmapURI(vmapURL)
+            .setPlayerView(playerView)
+            .load();
+}
+	</pre>
+
+	<p>
+		In this example, the <a href="com/volarvideo/mobilesdk/vplayer/VVPlayerView.html">VVPlayerView</a> is assumed to be in the layout xml.  Here's how to include the view in your layout:
+	</p>
+
+	<pre>
+
+&lt;com.volarvideo.mobilesdk.vplayer.VVPlayerView
+    android:id="@+id/playerView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" /&gt;
+	</pre>
+
+	<h2>Querying for Content</h2>
+	<p>
+		To query content on a VolarVideo CMS, you'll need to use the <a href="com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a> class.  There are two ways to instantiate this class for authenticated querying.  The first and more desired method is with an API key. You can find a detailed description of how to create an API user <a href="https://github.com/volarvideo/cms-client-sdk/wiki/Creating-api-credentials">here</a>.  Here's an example in code:
+	</p>
+
+	<pre>
+String API_KEY = "&lt;your api key&gt;";
+VVCMSAPI api = new VVCMSAPI("vcloud.volarvideo.com", API_KEY);
+	</pre>
+
+	<p>
+		The second method of instantiation is with a username and password as shown below: 
+	</p>
+
+	<pre>
+VVCMSAPI api = new VVCMSAPI("vcloud.volarvideo.com", "john.doe@test.com", "password");
+	</pre>
+
+	<p>
+		Now that you have an instance of <a href="com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a>, it's easy to query for data.  Simply provide an instance of <a href="com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html">VVCMSAPIDelegate</a> to any of the methods to handle responses.  Here's an example of querying for the 3rd page of archived broadcasts with 20 results per page:
+	</p>
+
+	<pre>
+BroadcastParams params = new BroadcastParams()
+        .status(BroadcastStatus.Archived)
+        .page(3)
+        .resultsPerPage(20);
+api.requestBroadcasts(delegate, params);
+	</pre>
+
+	<p>
+		The corresponding delegate method would look like this:
+	</p>
+
+	<pre>
+public void requestForBroadcastsComplete(
+    VVCMSAPI api, BroadcastStatus status,
+    int page, int totalPages, int totalResults,
+    List broadcasts, final Exception e
+) {
+    // We're not guaranteed to be called on the thread the request was made from
+    runOnUiThread(new Runnable() {
+        public void run() {
+            if(e != null) {
+                // handle error
+                return;
+            }
+
+            // process data
+        }
+    });
+}
+	</pre>
+
+	<p>
+		<b>NOTE:</b> It's important to call <a href="com/volarvideo/mobilesdk/api/VVCMSAPI.html#shutdown()">shutdown()</a> when you are finished with an instance of <a href="com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a>. This will prevent any unfinished requests from calling their delegate methods, ignore future requests, and remove the potential for long-lived references to memory.
+	</p>
+
+	<h2>Mobile Web Launch</h2>
+	<p>
+		The VolarVideo CMS allows you to register your mobile app to be launched from a mobile browser.  Just follow the steps <a href="https://github.com/volarvideo/cms-client-sdk/wiki/Creating-your-own-Mobile-app">here</a> to get set up.  In this process, you'll choose a custom URL token.  In your <b>AndroidManifest.xml</b>, create an intent filter for your <b>Activity</b> used for video playback.  Below is an example where the token is set to <code>mytoken</code>.
+	</p>
+
+	<pre>
+ &lt;activity
+      android:name=".VideoActivity"
+      android:windowSoftInputMode="stateHidden"
+      android:exported="true"
+      android:hardwareAccelerated="true"
+      android:label="@string/app_name"
+      android:configChanges="orientation|keyboard|keyboardHidden|navigation|screenSize" &gt;
+
+      &lt;intent-filter&gt;
+           &lt;action android:name="android.intent.action.VIEW" /&gt;
+           &lt;category android:name="android.intent.category.DEFAULT" /&gt;
+           &lt;category android:name="android.intent.category.BROWSABLE" /&gt;
+
+           &lt;!-- Custom URL token is specified in the pathPrefix attribute --&gt;
+           &lt;!-- "/api/broadcast/vmap:URL_TOKEN_GOES_HERE/" --&gt;
+           &lt;data android:pathPrefix="/api/broadcast/vmap:mytoken/" /&gt;
+
+           &lt;data android:scheme="http" /&gt;
+           &lt;data android:scheme="https" /&gt;
+           &lt;data android:host="*.volarvideo.com" /&gt;
+      &lt;/intent-filter&gt;
+ &lt;/activity&gt;
+	</pre>
+
+	<p>
+		In your <b>VideoActivity</b>, you can detect the web launch and retreive the video URL with the following code snippet:
+	</p>
+
+	<pre>
+Uri uri = getIntent().getData();
+if (uri != null) {
+    String vmapURI = uri.toString();
+
+    // Use vmapURI when creating your VolarPlayerController
+}
+	</pre>
+
+	<h2>Package Index</h2></p>
 </div>
 
 

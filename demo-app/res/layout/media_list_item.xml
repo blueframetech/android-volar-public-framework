@@ -7,35 +7,10 @@
     android:orientation="vertical"
     android:padding="6dp" >
     <ImageView
-        android:id="@+id/unread"
-        android:layout_width="9dp"
-        android:layout_height="9dp"
-        android:layout_marginBottom="20dp"
-	    android:visibility="gone"
-        android:src="@drawable/unread"
-        android:scaleType="fitCenter" />
-    <LinearLayout
-	    android:id="@+id/favorite"
-	    android:layout_height="35dp"
-	    android:layout_width="35dp"
-	    android:visibility="gone"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-	    android:gravity="center">
-	    <Button
-	        android:layout_width="20dp"
-	        android:layout_height="20dp"
-	        android:layout_marginLeft="8dp"
-	        android:clickable="false"
-	        android:duplicateParentState="true"
-	        android:background="@drawable/favorite_selector" />
-	</LinearLayout>
-    <ImageView
         android:id="@+id/thumb"
         android:layout_width="85dp"
         android:layout_height="78dp"
         android:layout_marginRight="6dp"
-       	android:layout_below="@id/unread"
     	android:layout_centerVertical="true"
         android:cropToPadding="true" />
     <TextView
@@ -53,7 +28,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
 	    android:layout_toRightOf="@id/thumb"
-	    android:layout_toLeftOf="@id/favorite"
         android:layout_marginRight="5dp"
         android:orientation="vertical">
 	    <TextView

@@ -170,13 +170,10 @@
               
     <li><h2>Exceptions</h2>
       <ul>
-          <li class="api apilevel-"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.BadRequestException.html">VVCMSAPI.BadRequestException</a></li>
           <li class="api apilevel-"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.DomainUnreachableException.html">VVCMSAPI.DomainUnreachableException</a></li>
-          <li class="api apilevel-"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.InvalidDelegateException.html">VVCMSAPI.InvalidDelegateException</a></li>
-          <li class="api apilevel-"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.InvalidDomainURLException.html">VVCMSAPI.InvalidDomainURLException</a></li>
           <li class="api apilevel-"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.NoDomainURLException.html">VVCMSAPI.NoDomainURLException</a></li>
-          <li class="api apilevel-"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.NotLoggedInException.html">VVCMSAPI.NotLoggedInException</a></li>
           <li class="api apilevel-"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.UnknownEndpointException.html">VVCMSAPI.UnknownEndpointException</a></li>
+          <li class="api apilevel-"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.VVCMSAPIException.html">VVCMSAPI.VVCMSAPIException</a></li>
       </ul>
     </li>
               
@@ -216,13 +213,6 @@
 <div id="api-info-block">
 
 
-
-  
-   
-  
-  
-  
-  
 
   
    
@@ -287,11 +277,7 @@ Summary:
 
 
   
-  
-  
-
-  
-    extends Observable<br/>
+    extends Object<br/>
   
   
   
@@ -311,21 +297,11 @@ Summary:
 
     <tr>
          	
-        <td colspan="3" class="jd-inheritance-class-cell">java.lang.Object</td>
+        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
     </tr>
     
 
     <tr>
-        
-            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
-         	
-        <td colspan="2" class="jd-inheritance-class-cell">java.util.Observable</td>
-    </tr>
-    
-
-    <tr>
-        
-            <td class="jd-inheritance-space">&nbsp;</td>
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
@@ -345,12 +321,25 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>Wrapper for the VolarVideo CMS API.  An instance of <code><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html">VVCMSAPIDelegate</a></code>
- should be provided to handle responses.
+<p><p>
+ <code><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a></code> is used to query video records managed by a VolarVideo CMS.
+ When instantiating, you must provide a valid domain and API key. Your API
+ key will affect the scope of content you have access to. The same request
+ could yield different results for different API keys.
+ </p>
  
  <p>
- NOTE: Delegate methods are not guaranteed to be called on the same thread
- they were requested from.  Updates to the UI should be done on the UI thread.
+ Every request should be provided a <code><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html">VVCMSAPIDelegate</a></code> to handle
+ responses. Work is done on another thread and delegate methods are not
+ guaranteed to be called on the same thread they were requested from.
+ </p>
+ 
+ <p>
+ <b>NOTE:</b>
+ It's important to call <code>shutdown()</code> when you are finished with an
+ instance of <code><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a></code>. This will prevent any unfinished requests
+ from calling their delegate methods, ignore future requests, and remove
+ the potential for long-lived references to memory.
  </p>
 </p>
 
@@ -394,48 +383,12 @@ Summary:
          
         
         class</td>
-      <td class="jd-linkcol"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.BadRequestException.html">VVCMSAPI.BadRequestException</a></td>
-      <td class="jd-descrcol" width="100%">BadRequestException &nbsp;</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-" >
-      <td class="jd-typecol">
-        
-         
-         
-        
-        class</td>
       <td class="jd-linkcol"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.DomainUnreachableException.html">VVCMSAPI.DomainUnreachableException</a></td>
       <td class="jd-descrcol" width="100%">DomainUnreachableException &nbsp;</td>
     </tr>
     
     
-    <tr class="alt-color api apilevel-" >
-      <td class="jd-typecol">
-        
-         
-         
-        
-        class</td>
-      <td class="jd-linkcol"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.InvalidDelegateException.html">VVCMSAPI.InvalidDelegateException</a></td>
-      <td class="jd-descrcol" width="100%">InvalidDelegateException &nbsp;</td>
-    </tr>
-    
-    
     <tr class=" api apilevel-" >
-      <td class="jd-typecol">
-        
-         
-         
-        
-        class</td>
-      <td class="jd-linkcol"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.InvalidDomainURLException.html">VVCMSAPI.InvalidDomainURLException</a></td>
-      <td class="jd-descrcol" width="100%">InvalidDomainURLException &nbsp;</td>
-    </tr>
-    
-    
-    <tr class="alt-color api apilevel-" >
       <td class="jd-typecol">
         
          
@@ -444,18 +397,6 @@ Summary:
         class</td>
       <td class="jd-linkcol"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.NoDomainURLException.html">VVCMSAPI.NoDomainURLException</a></td>
       <td class="jd-descrcol" width="100%">NoDomainURLException &nbsp;</td>
-    </tr>
-    
-    
-    <tr class=" api apilevel-" >
-      <td class="jd-typecol">
-        
-         
-         
-        
-        class</td>
-      <td class="jd-linkcol"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.NotLoggedInException.html">VVCMSAPI.NotLoggedInException</a></td>
-      <td class="jd-descrcol" width="100%">NotLoggedInException &nbsp;</td>
     </tr>
     
     
@@ -468,6 +409,18 @@ Summary:
         class</td>
       <td class="jd-linkcol"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.UnknownEndpointException.html">VVCMSAPI.UnknownEndpointException</a></td>
       <td class="jd-descrcol" width="100%">UnknownEndpointException &nbsp;</td>
+    </tr>
+    
+    
+    <tr class=" api apilevel-" >
+      <td class="jd-typecol">
+        
+         
+         
+        
+        class</td>
+      <td class="jd-linkcol"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.VVCMSAPIException.html">VVCMSAPI.VVCMSAPIException</a></td>
+      <td class="jd-descrcol" width="100%">VVCMSAPIException &nbsp;</td>
     </tr>
     
     
@@ -511,7 +464,23 @@ Summary:
             
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#VVCMSAPI()">VVCMSAPI</a></span>()
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#VVCMSAPI(java.lang.String, java.lang.String)">VVCMSAPI</a></span>(String domain, String apiKey)
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#VVCMSAPI(java.lang.String, java.lang.String, java.lang.String)">VVCMSAPI</a></span>(String domain, String uname, String pwd)
         
   </td></tr>
 
@@ -540,9 +509,44 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#authenticationRequestForDomain(java.lang.String, java.lang.String, java.lang.String)">authenticationRequestForDomain</a></span>(String domain, String uname, String pwd)
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#checkCredentials(com.volarvideo.mobilesdk.api.VVCMSAPIDelegate)">checkCredentials</a></span>(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html">VVCMSAPIDelegate</a> delegate)
         
-        <div class="jd-descrdiv">Authenticates with username and password and initiates VVCMSAPI</div>
+        <div class="jd-descrdiv">Once the instance of VVCMSAPI has verified the provided credentials, the
+ delegate's checkCredendtialsComplete method will be called.</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            String
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#getVMAP(java.lang.String)">getVMAP</a></span>(String url)
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol">
+            
+            
+            
+            
+            
+            void
+        </td>
+        <td class="jd-linkcol" width="100%">
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#requestBroadcasts(com.volarvideo.mobilesdk.api.VVCMSAPIDelegate, com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastParams)">requestBroadcasts</a></span>(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html">VVCMSAPIDelegate</a> delegate, <a href="../../../../com/volarvideo/mobilesdk/models/VVCMSBroadcast.BroadcastParams.html">VVCMSBroadcast.BroadcastParams</a> params)
+        
+        <div class="jd-descrdiv">Request a list of <code><a href="../../../../com/volarvideo/mobilesdk/models/VVCMSBroadcast.html">VVCMSBroadcast</a></code> objects that fit the search params.</div>
   
   </td></tr>
 
@@ -558,10 +562,9 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#authenticationRequestForDomainWithSlug(java.lang.String, java.lang.String, java.lang.String, java.lang.String)">authenticationRequestForDomainWithSlug</a></span>(String slug, String domain, String uname, String pwd)
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#requestClips(com.volarvideo.mobilesdk.api.VVCMSAPIDelegate, com.volarvideo.mobilesdk.models.VVCMSClip.ClipParams)">requestClips</a></span>(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html">VVCMSAPIDelegate</a> delegate, <a href="../../../../com/volarvideo/mobilesdk/models/VVCMSClip.ClipParams.html">VVCMSClip.ClipParams</a> params)
         
-        <div class="jd-descrdiv">Authenticates with username and password and initiates VVCMSAPI with the
- specified site slug</div>
+        <div class="jd-descrdiv">Request a list of <code><a href="../../../../com/volarvideo/mobilesdk/models/VVCMSClip.html">VVCMSClip</a></code> objects that fit the search params.</div>
   
   </td></tr>
 
@@ -574,48 +577,12 @@ Summary:
             
             
             
-            <a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a>
+            void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#getCopy()">getCopy</a></span>()
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#requestSections(com.volarvideo.mobilesdk.api.VVCMSAPIDelegate, com.volarvideo.mobilesdk.models.VVCMSSection.SectionParams)">requestSections</a></span>(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html">VVCMSAPIDelegate</a> delegate, <a href="../../../../com/volarvideo/mobilesdk/models/VVCMSSection.SectionParams.html">VVCMSSection.SectionParams</a> params)
         
-        <div class="jd-descrdiv">Method to get a copy of the API object.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            <a href="../../../../com/volarvideo/mobilesdk/models/VVCMSSite.html">VVCMSSite</a>
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#getCurrentSite()">getCurrentSite</a></span>()
-        
-        <div class="jd-descrdiv">Returns the current site model</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#isAuthenticated()">isAuthenticated</a></span>()
-        
-        <div class="jd-descrdiv">Checks whether the api instance has been authenticated</div>
+        <div class="jd-descrdiv">Request a list of <code><a href="../../../../com/volarvideo/mobilesdk/models/VVCMSSection.html">VVCMSSection</a></code> that fit the search params.</div>
   
   </td></tr>
 
@@ -631,10 +598,9 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#logout()">logout</a></span>()
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#requestSites(com.volarvideo.mobilesdk.api.VVCMSAPIDelegate, com.volarvideo.mobilesdk.models.VVCMSSite.SiteParams)">requestSites</a></span>(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html">VVCMSAPIDelegate</a> delegate, <a href="../../../../com/volarvideo/mobilesdk/models/VVCMSSite.SiteParams.html">VVCMSSite.SiteParams</a> params)
         
-        <div class="jd-descrdiv">End authenticated session
-</div>
+        <div class="jd-descrdiv">Request a list of <code><a href="../../../../com/volarvideo/mobilesdk/models/VVCMSSite.html">VVCMSSite</a></code> objects that fit the search params.</div>
   
   </td></tr>
 
@@ -650,80 +616,10 @@ Summary:
             void
         </td>
         <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#requestBroadcastsWithStatus(com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus, int, int)">requestBroadcastsWithStatus</a></span>(<a href="../../../../com/volarvideo/mobilesdk/models/VVCMSBroadcast.BroadcastStatus.html">VVCMSBroadcast.BroadcastStatus</a> status, int page, int resultsPerPage)
+        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#shutdown()">shutdown</a></span>()
         
-        <div class="jd-descrdiv">Request <code><a href="../../../../com/volarvideo/mobilesdk/models/VVCMSBroadcast.html">VVCMSBroadcast</a></code> objects for the current domain, sit, and
- user.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#requestDomain(java.lang.String)">requestDomain</a></span>(String domain)
-        
-        <div class="jd-descrdiv">Tests the given domain for availability</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#setCurrentSiteIndex(int)">setCurrentSiteIndex</a></span>(int index)
-        
-        <div class="jd-descrdiv">Changes the site index for subsequent calls to requestBroadcastsWithStatus</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#setDelegate(com.volarvideo.mobilesdk.api.VVCMSAPIDelegate)">setDelegate</a></span>(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html">VVCMSAPIDelegate</a> d)
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            String[]
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad"><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html#siteNames()">siteNames</a></span>()
-        
-        <div class="jd-descrdiv">Returns the array of site names for the current domain</div>
+        <div class="jd-descrdiv">This method should be called when you are finished with an instance of
+ <code><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a></code>.</div>
   
   </td></tr>
 
@@ -741,144 +637,6 @@ Summary:
 <table id="inhmethods" class="jd-sumtable"><tr><th>
   <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
   <div style="clear:left;">Inherited Methods</div></th></tr>
-
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.util.Observable" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-java.util.Observable-trigger"
-          src="../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From class
-
-  java.util.Observable
-
-<div id="inherited-methods-java.util.Observable">
-  <div id="inherited-methods-java.util.Observable-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-java.util.Observable-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            synchronized
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">addObserver</span>(Observer arg0)
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            synchronized
-            
-            
-            
-            int
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">countObservers</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            synchronized
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">deleteObserver</span>(Observer arg0)
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            synchronized
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">deleteObservers</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            synchronized
-            
-            
-            
-            boolean
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">hasChanged</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">notifyObservers</span>()
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">
-            
-            
-            
-            
-            
-            void
-        </td>
-        <td class="jd-linkcol" width="100%">
-        <span class="sympad">notifyObservers</span>(Object arg0)
-        
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
 
 
 <tr class="api apilevel-" >
@@ -1084,7 +842,7 @@ From class
 
 
 
-<a id="VVCMSAPI()"></a>
+<a id="VVCMSAPI(java.lang.String, java.lang.String)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1097,7 +855,38 @@ From class
         
       </span>
       <span class="sympad">VVCMSAPI</span>
-      <span class="normal">()</span>
+      <span class="normal">(String domain, String apiKey)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<a id="VVCMSAPI(java.lang.String, java.lang.String, java.lang.String)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">VVCMSAPI</span>
+      <span class="normal">(String domain, String uname, String pwd)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1130,7 +919,7 @@ From class
 
 
 
-<a id="authenticationRequestForDomain(java.lang.String, java.lang.String, java.lang.String)"></a>
+<a id="checkCredentials(com.volarvideo.mobilesdk.api.VVCMSAPIDelegate)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1142,8 +931,8 @@ From class
          
         void
       </span>
-      <span class="sympad">authenticationRequestForDomain</span>
-      <span class="normal">(String domain, String uname, String pwd)</span>
+      <span class="sympad">checkCredentials</span>
+      <span class="normal">(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html">VVCMSAPIDelegate</a> delegate)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1155,21 +944,18 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Authenticates with username and password and initiates VVCMSAPI</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Once the instance of VVCMSAPI has verified the provided credentials, the
+ delegate's checkCredendtialsComplete method will be called.
+ <p>
+ NOTE: Delegate methods are not guaranteed to be called on the same thread
+ they were requested from.  Updates to the UI should be done on the UI thread.
+ </p></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>domain</th>
-          <td>The domain for further API calls</td>
-        </tr>
-        <tr>
-          <th>uname</th>
-          <td>Username for authenticating. Pass null for public access.</td>
-        </tr>
-        <tr>
-          <th>pwd</th>
-          <td>Password for authenticating. Pass null for public access.
+          <th>delegate</th>
+          <td>Delegate used for response callbacks
 </td>
         </tr>
       </table>
@@ -1179,7 +965,7 @@ From class
 </div>
 
 
-<a id="authenticationRequestForDomainWithSlug(java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></a>
+<a id="getVMAP(java.lang.String)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1189,337 +975,10 @@ From class
          
          
          
-        void
+        String
       </span>
-      <span class="sympad">authenticationRequestForDomainWithSlug</span>
-      <span class="normal">(String slug, String domain, String uname, String pwd)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Authenticates with username and password and initiates VVCMSAPI with the
- specified site slug</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>slug</th>
-          <td>The short name for the site to initialize with</td>
-        </tr>
-        <tr>
-          <th>domain</th>
-          <td>The domain for further API calls</td>
-        </tr>
-        <tr>
-          <th>uname</th>
-          <td>Username for authenticating. Pass null for public access.</td>
-        </tr>
-        <tr>
-          <th>pwd</th>
-          <td>Password for authenticating. Pass null for public access.
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<a id="getCopy()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a>
-      </span>
-      <span class="sympad">getCopy</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Method to get a copy of the API object.  This is most useful
- when used after a domain has been successfully authenticated.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>A deep copy of the API object
-</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
-<a id="getCurrentSite()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        <a href="../../../../com/volarvideo/mobilesdk/models/VVCMSSite.html">VVCMSSite</a>
-      </span>
-      <span class="sympad">getCurrentSite</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the current site model</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>The current site
-</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
-<a id="isAuthenticated()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        boolean
-      </span>
-      <span class="sympad">isAuthenticated</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Checks whether the api instance has been authenticated</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>True if a call to authenticate succeeded already
-</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
-<a id="logout()"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">logout</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>End authenticated session
-</p></div>
-
-    </div>
-</div>
-
-
-<a id="requestBroadcastsWithStatus(com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus, int, int)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">requestBroadcastsWithStatus</span>
-      <span class="normal">(<a href="../../../../com/volarvideo/mobilesdk/models/VVCMSBroadcast.BroadcastStatus.html">VVCMSBroadcast.BroadcastStatus</a> status, int page, int resultsPerPage)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Request <code><a href="../../../../com/volarvideo/mobilesdk/models/VVCMSBroadcast.html">VVCMSBroadcast</a></code> objects for the current domain, sit, and
- user.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>status</th>
-          <td>Used to filter results by the broadcast status</td>
-        </tr>
-        <tr>
-          <th>page</th>
-          <td>The pagenaion page</td>
-        </tr>
-        <tr>
-          <th>resultsPerPage</th>
-          <td>The number of results per page (for pagenation)
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<a id="requestDomain(java.lang.String)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">requestDomain</span>
-      <span class="normal">(String domain)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Tests the given domain for availability</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>domain</th>
-          <td>Domain to test for availability
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<a id="setCurrentSiteIndex(int)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setCurrentSiteIndex</span>
-      <span class="normal">(int index)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Changes the site index for subsequent calls to requestBroadcastsWithStatus</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>index</th>
-          <td>Index of the target site
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<a id="setDelegate(com.volarvideo.mobilesdk.api.VVCMSAPIDelegate)"></a>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setDelegate</span>
-      <span class="normal">(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html">VVCMSAPIDelegate</a> d)</span>
+      <span class="sympad">getVMAP</span>
+      <span class="normal">(String url)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1537,7 +996,7 @@ From class
 </div>
 
 
-<a id="siteNames()"></a>
+<a id="requestBroadcasts(com.volarvideo.mobilesdk.api.VVCMSAPIDelegate, com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastParams)"></a>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1547,9 +1006,205 @@ From class
          
          
          
-        String[]
+        void
       </span>
-      <span class="sympad">siteNames</span>
+      <span class="sympad">requestBroadcasts</span>
+      <span class="normal">(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html">VVCMSAPIDelegate</a> delegate, <a href="../../../../com/volarvideo/mobilesdk/models/VVCMSBroadcast.BroadcastParams.html">VVCMSBroadcast.BroadcastParams</a> params)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Request a list of <code><a href="../../../../com/volarvideo/mobilesdk/models/VVCMSBroadcast.html">VVCMSBroadcast</a></code> objects that fit the search params.
+ <p>
+ NOTE: Delegate methods are not guaranteed to be called on the same thread
+ they were requested from.  Updates to the UI should be done on the UI thread.
+ </p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>delegate</th>
+          <td>Delegate used for response callbacks</td>
+        </tr>
+        <tr>
+          <th>params</th>
+          <td>Parameters for searching
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="requestClips(com.volarvideo.mobilesdk.api.VVCMSAPIDelegate, com.volarvideo.mobilesdk.models.VVCMSClip.ClipParams)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestClips</span>
+      <span class="normal">(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html">VVCMSAPIDelegate</a> delegate, <a href="../../../../com/volarvideo/mobilesdk/models/VVCMSClip.ClipParams.html">VVCMSClip.ClipParams</a> params)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Request a list of <code><a href="../../../../com/volarvideo/mobilesdk/models/VVCMSClip.html">VVCMSClip</a></code> objects that fit the search params.
+ <p>
+ NOTE: Delegate methods are not guaranteed to be called on the same thread
+ they were requested from.  Updates to the UI should be done on the UI thread.
+ </p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>delegate</th>
+          <td>Delegate used for response callbacks</td>
+        </tr>
+        <tr>
+          <th>params</th>
+          <td>Parameters for searching
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="requestSections(com.volarvideo.mobilesdk.api.VVCMSAPIDelegate, com.volarvideo.mobilesdk.models.VVCMSSection.SectionParams)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestSections</span>
+      <span class="normal">(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html">VVCMSAPIDelegate</a> delegate, <a href="../../../../com/volarvideo/mobilesdk/models/VVCMSSection.SectionParams.html">VVCMSSection.SectionParams</a> params)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Request a list of <code><a href="../../../../com/volarvideo/mobilesdk/models/VVCMSSection.html">VVCMSSection</a></code> that fit the search params.
+ <p>
+ NOTE: Delegate methods are not guaranteed to be called on the same thread
+ they were requested from.  Updates to the UI should be done on the UI thread.
+ </p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>delegate</th>
+          <td>Delegate used for response callbacks</td>
+        </tr>
+        <tr>
+          <th>params</th>
+          <td>Parameters for searching
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="requestSites(com.volarvideo.mobilesdk.api.VVCMSAPIDelegate, com.volarvideo.mobilesdk.models.VVCMSSite.SiteParams)"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">requestSites</span>
+      <span class="normal">(<a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html">VVCMSAPIDelegate</a> delegate, <a href="../../../../com/volarvideo/mobilesdk/models/VVCMSSite.SiteParams.html">VVCMSSite.SiteParams</a> params)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Request a list of <code><a href="../../../../com/volarvideo/mobilesdk/models/VVCMSSite.html">VVCMSSite</a></code> objects that fit the search params.
+ <p>
+ NOTE: Delegate methods are not guaranteed to be called on the same thread
+ they were requested from.  Updates to the UI should be done on the UI thread.
+ </p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>delegate</th>
+          <td>Delegate used for response callbacks</td>
+        </tr>
+        <tr>
+          <th>params</th>
+          <td>Parameters for searching
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<a id="shutdown()"></a>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">shutdown</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -1562,12 +1217,11 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the array of site names for the current domain</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>Array of site names
-</li></ul>
-  </div>
+  <div class="jd-tagdata jd-tagdescr"><p>This method should be called when you are finished with an instance of
+ <code><a href="../../../../com/volarvideo/mobilesdk/api/VVCMSAPI.html">VVCMSAPI</a></code>. This will prevent any unfinished requests from calling
+ their delegate methods, ignore future requests, and remove the potential
+ for long-lived references to memory.
+</p></div>
 
     </div>
 </div>

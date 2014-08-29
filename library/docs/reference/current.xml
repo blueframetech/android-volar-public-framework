@@ -127,7 +127,7 @@
 <package name="com.volarvideo.mobilesdk.api"
 >
 <class name="VVCMSAPI"
- extends="java.util.Observable"
+ extends="java.lang.Object"
  abstract="false"
  static="false"
  final="false"
@@ -141,12 +141,13 @@
  deprecated="not deprecated"
  visibility="public"
 >
+<parameter name="domain" type="java.lang.String">
+</parameter>
+<parameter name="apiKey" type="java.lang.String">
+</parameter>
 </constructor>
-<method name="authenticationRequestForDomain"
- return="void"
- abstract="false"
- native="false"
- synchronized="false"
+<constructor name="VVCMSAPI"
+ type="com.volarvideo.mobilesdk.api.VVCMSAPI"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -158,154 +159,104 @@
 </parameter>
 <parameter name="pwd" type="java.lang.String">
 </parameter>
-</method>
-<method name="authenticationRequestForDomainWithSlug"
- return="void"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="slug" type="java.lang.String">
-</parameter>
-<parameter name="domain" type="java.lang.String">
-</parameter>
-<parameter name="uname" type="java.lang.String">
-</parameter>
-<parameter name="pwd" type="java.lang.String">
-</parameter>
-</method>
-<method name="getCopy"
- return="com.volarvideo.mobilesdk.api.VVCMSAPI"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</method>
-<method name="getCurrentSite"
- return="com.volarvideo.mobilesdk.models.VVCMSSite"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</method>
-<method name="isAuthenticated"
- return="boolean"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</method>
-<method name="logout"
- return="void"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</method>
-<method name="requestBroadcastsWithStatus"
- return="void"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="status" type="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus">
-</parameter>
-<parameter name="page" type="int">
-</parameter>
-<parameter name="resultsPerPage" type="int">
-</parameter>
-</method>
-<method name="requestDomain"
- return="void"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="domain" type="java.lang.String">
-</parameter>
-</method>
-<method name="setCurrentSiteIndex"
- return="void"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="index" type="int">
-</parameter>
-</method>
-<method name="setDelegate"
- return="void"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="d" type="com.volarvideo.mobilesdk.api.VVCMSAPIDelegate">
-</parameter>
-</method>
-<method name="siteNames"
- return="java.lang.String[]"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</method>
-</class>
-<class name="VVCMSAPI.BadRequestException"
- extends="java.lang.Exception"
- abstract="false"
- static="true"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<constructor name="VVCMSAPI.BadRequestException"
- type="com.volarvideo.mobilesdk.api.VVCMSAPI.BadRequestException"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
 </constructor>
+<method name="checkCredentials"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="delegate" type="com.volarvideo.mobilesdk.api.VVCMSAPIDelegate">
+</parameter>
+</method>
+<method name="getVMAP"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+</method>
+<method name="requestBroadcasts"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="delegate" type="com.volarvideo.mobilesdk.api.VVCMSAPIDelegate">
+</parameter>
+<parameter name="params" type="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastParams">
+</parameter>
+</method>
+<method name="requestClips"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="delegate" type="com.volarvideo.mobilesdk.api.VVCMSAPIDelegate">
+</parameter>
+<parameter name="params" type="com.volarvideo.mobilesdk.models.VVCMSClip.ClipParams">
+</parameter>
+</method>
+<method name="requestSections"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="delegate" type="com.volarvideo.mobilesdk.api.VVCMSAPIDelegate">
+</parameter>
+<parameter name="params" type="com.volarvideo.mobilesdk.models.VVCMSSection.SectionParams">
+</parameter>
+</method>
+<method name="requestSites"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="delegate" type="com.volarvideo.mobilesdk.api.VVCMSAPIDelegate">
+</parameter>
+<parameter name="params" type="com.volarvideo.mobilesdk.models.VVCMSSite.SiteParams">
+</parameter>
+</method>
+<method name="shutdown"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
 </class>
 <class name="VVCMSAPI.DomainUnreachableException"
  extends="java.lang.Exception"
@@ -317,40 +268,6 @@
 >
 <constructor name="VVCMSAPI.DomainUnreachableException"
  type="com.volarvideo.mobilesdk.api.VVCMSAPI.DomainUnreachableException"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</constructor>
-</class>
-<class name="VVCMSAPI.InvalidDelegateException"
- extends="java.lang.Exception"
- abstract="false"
- static="true"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<constructor name="VVCMSAPI.InvalidDelegateException"
- type="com.volarvideo.mobilesdk.api.VVCMSAPI.InvalidDelegateException"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</constructor>
-</class>
-<class name="VVCMSAPI.InvalidDomainURLException"
- extends="java.lang.Exception"
- abstract="false"
- static="true"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<constructor name="VVCMSAPI.InvalidDomainURLException"
- type="com.volarvideo.mobilesdk.api.VVCMSAPI.InvalidDomainURLException"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -375,23 +292,6 @@
 >
 </constructor>
 </class>
-<class name="VVCMSAPI.NotLoggedInException"
- extends="java.lang.Exception"
- abstract="false"
- static="true"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<constructor name="VVCMSAPI.NotLoggedInException"
- type="com.volarvideo.mobilesdk.api.VVCMSAPI.NotLoggedInException"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</constructor>
-</class>
 <class name="VVCMSAPI.UnknownEndpointException"
  extends="java.lang.Exception"
  abstract="false"
@@ -409,6 +309,27 @@
 >
 </constructor>
 </class>
+<class name="VVCMSAPI.VVCMSAPIException"
+ extends="java.lang.Exception"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSAPI.VVCMSAPIException"
+ type="com.volarvideo.mobilesdk.api.VVCMSAPI.VVCMSAPIException"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="msg" type="java.lang.String">
+</parameter>
+<parameter name="code" type="int">
+</parameter>
+</constructor>
+</class>
 <interface name="VVCMSAPIDelegate"
  abstract="true"
  static="false"
@@ -416,7 +337,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<method name="authenticationRequestDidFinish"
+<method name="checkCredentialsComplete"
  return="void"
  abstract="true"
  native="false"
@@ -431,39 +352,7 @@
 <parameter name="e" type="java.lang.Exception">
 </parameter>
 </method>
-<method name="domainRequestComplete"
- return="void"
- abstract="true"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="api" type="com.volarvideo.mobilesdk.api.VVCMSAPI">
-</parameter>
-<parameter name="domain" type="java.lang.String">
-</parameter>
-<parameter name="e" type="java.lang.Exception">
-</parameter>
-</method>
-<method name="logoutRequestDidFinish"
- return="void"
- abstract="true"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="api" type="com.volarvideo.mobilesdk.api.VVCMSAPI">
-</parameter>
-<parameter name="e" type="java.lang.Exception">
-</parameter>
-</method>
-<method name="requestForBroadcastsOfStatusNameComplete"
+<method name="requestForBroadcastsComplete"
  return="void"
  abstract="true"
  native="false"
@@ -488,6 +377,75 @@
 <parameter name="e" type="java.lang.Exception">
 </parameter>
 </method>
+<method name="requestForClipsComplete"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="api" type="com.volarvideo.mobilesdk.api.VVCMSAPI">
+</parameter>
+<parameter name="page" type="int">
+</parameter>
+<parameter name="totalPages" type="int">
+</parameter>
+<parameter name="totalResults" type="int">
+</parameter>
+<parameter name="clips" type="java.util.List&lt;com.volarvideo.mobilesdk.models.VVCMSClip&gt;">
+</parameter>
+<parameter name="e" type="java.lang.Exception">
+</parameter>
+</method>
+<method name="requestForSectionsComplete"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="api" type="com.volarvideo.mobilesdk.api.VVCMSAPI">
+</parameter>
+<parameter name="page" type="int">
+</parameter>
+<parameter name="totalPages" type="int">
+</parameter>
+<parameter name="totalResults" type="int">
+</parameter>
+<parameter name="sections" type="java.util.List&lt;com.volarvideo.mobilesdk.models.VVCMSSection&gt;">
+</parameter>
+<parameter name="e" type="java.lang.Exception">
+</parameter>
+</method>
+<method name="requestForSitesComplete"
+ return="void"
+ abstract="true"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="api" type="com.volarvideo.mobilesdk.api.VVCMSAPI">
+</parameter>
+<parameter name="page" type="int">
+</parameter>
+<parameter name="totalPages" type="int">
+</parameter>
+<parameter name="totalResults" type="int">
+</parameter>
+<parameter name="sites" type="java.util.List&lt;com.volarvideo.mobilesdk.models.VVCMSSite&gt;">
+</parameter>
+<parameter name="e" type="java.lang.Exception">
+</parameter>
+</method>
 </interface>
 </package>
 <package name="com.volarvideo.mobilesdk.models"
@@ -500,14 +458,6 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<constructor name="VVCMSBroadcast"
- type="com.volarvideo.mobilesdk.models.VVCMSBroadcast"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</constructor>
 <constructor name="VVCMSBroadcast"
  type="com.volarvideo.mobilesdk.models.VVCMSBroadcast"
  static="false"
@@ -679,6 +629,199 @@
 >
 </field>
 </class>
+<class name="VVCMSBroadcast.BroadcastParams"
+ extends="java.lang.Object"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSBroadcast.BroadcastParams"
+ type="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastParams"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="applyParams"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+</method>
+<method name="end"
+ return="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="e" type="java.util.Calendar">
+</parameter>
+</method>
+<method name="id"
+ return="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="i" type="int">
+</parameter>
+</method>
+<method name="page"
+ return="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="p" type="int">
+</parameter>
+</method>
+<method name="resultsPerPage"
+ return="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="r" type="int">
+</parameter>
+</method>
+<method name="sectionID"
+ return="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="i" type="int">
+</parameter>
+</method>
+<method name="sites"
+ return="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="s" type="java.lang.String">
+</parameter>
+</method>
+<method name="sortBy"
+ return="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="s" type="java.lang.String">
+</parameter>
+</method>
+<method name="sortDir"
+ return="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="s" type="java.lang.String">
+</parameter>
+</method>
+<method name="start"
+ return="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="s" type="java.util.Calendar">
+</parameter>
+</method>
+<method name="status"
+ return="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="s" type="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus">
+</parameter>
+</method>
+<method name="title"
+ return="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="t" type="java.lang.String">
+</parameter>
+</method>
+<field name="_page"
+ type="int"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="_status"
+ type="com.volarvideo.mobilesdk.models.VVCMSBroadcast.BroadcastStatus"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
 <class name="VVCMSBroadcast.BroadcastStatus"
  extends="java.lang.Enum"
  abstract="false"
@@ -725,7 +868,7 @@
 >
 </method>
 </class>
-<class name="VVCMSSite"
+<class name="VVCMSClip"
  extends="java.lang.Object"
  abstract="false"
  static="false"
@@ -733,8 +876,8 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<constructor name="VVCMSSite"
- type="com.volarvideo.mobilesdk.models.VVCMSSite"
+<constructor name="VVCMSClip"
+ type="com.volarvideo.mobilesdk.models.VVCMSClip"
  static="false"
  final="false"
  deprecated="not deprecated"
@@ -743,7 +886,17 @@
 <parameter name="json" type="JSONObject">
 </parameter>
 </constructor>
-<field name="authURL"
+<field name="audioOnly"
+ type="boolean"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="authorName"
  type="java.lang.String"
  transient="false"
  volatile="false"
@@ -753,7 +906,17 @@
  visibility="public"
 >
 </field>
-<field name="broadcastsALL"
+<field name="averageReview"
+ type="double"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="description"
  type="java.lang.String"
  transient="false"
  volatile="false"
@@ -763,7 +926,17 @@
  visibility="public"
 >
 </field>
-<field name="broadcastsArchived"
+<field name="editDate"
+ type="java.util.Date"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="embedURL"
  type="java.lang.String"
  transient="false"
  volatile="false"
@@ -773,7 +946,37 @@
  visibility="public"
 >
 </field>
-<field name="broadcastsScheduled"
+<field name="id"
+ type="int"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="numberOfReviews"
+ type="int"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="startDate"
+ type="java.util.Date"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="thumbnailURL"
  type="java.lang.String"
  transient="false"
  volatile="false"
@@ -783,7 +986,7 @@
  visibility="public"
 >
 </field>
-<field name="broadcastsStreaming"
+<field name="title"
  type="java.lang.String"
  transient="false"
  volatile="false"
@@ -793,6 +996,215 @@
  visibility="public"
 >
 </field>
+<field name="userReview"
+ type="double"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="vmapURL"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="VVCMSClip.ClipParams"
+ extends="java.lang.Object"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSClip.ClipParams"
+ type="com.volarvideo.mobilesdk.models.VVCMSClip.ClipParams"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="applyParams"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+</method>
+<method name="end"
+ return="com.volarvideo.mobilesdk.models.VVCMSClip.ClipParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="e" type="java.util.Calendar">
+</parameter>
+</method>
+<method name="id"
+ return="com.volarvideo.mobilesdk.models.VVCMSClip.ClipParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="i" type="int">
+</parameter>
+</method>
+<method name="page"
+ return="com.volarvideo.mobilesdk.models.VVCMSClip.ClipParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="p" type="int">
+</parameter>
+</method>
+<method name="resultsPerPage"
+ return="com.volarvideo.mobilesdk.models.VVCMSClip.ClipParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="r" type="int">
+</parameter>
+</method>
+<method name="sectionID"
+ return="com.volarvideo.mobilesdk.models.VVCMSClip.ClipParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="i" type="int">
+</parameter>
+</method>
+<method name="sites"
+ return="com.volarvideo.mobilesdk.models.VVCMSClip.ClipParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="s" type="java.lang.String">
+</parameter>
+</method>
+<method name="sortBy"
+ return="com.volarvideo.mobilesdk.models.VVCMSClip.ClipParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="s" type="java.lang.String">
+</parameter>
+</method>
+<method name="sortDir"
+ return="com.volarvideo.mobilesdk.models.VVCMSClip.ClipParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="s" type="java.lang.String">
+</parameter>
+</method>
+<method name="start"
+ return="com.volarvideo.mobilesdk.models.VVCMSClip.ClipParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="s" type="java.util.Calendar">
+</parameter>
+</method>
+<method name="title"
+ return="com.volarvideo.mobilesdk.models.VVCMSClip.ClipParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="t" type="java.lang.String">
+</parameter>
+</method>
+<field name="_page"
+ type="int"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="VVCMSSection"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSSection"
+ type="com.volarvideo.mobilesdk.models.VVCMSSection"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="json" type="JSONObject">
+</parameter>
+</constructor>
 <field name="id"
  type="int"
  transient="false"
@@ -813,8 +1225,280 @@
  visibility="public"
 >
 </field>
-<field name="userURL"
+</class>
+<class name="VVCMSSection.SectionParams"
+ extends="java.lang.Object"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSSection.SectionParams"
+ type="com.volarvideo.mobilesdk.models.VVCMSSection.SectionParams"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="applyParams"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+</method>
+<method name="id"
+ return="com.volarvideo.mobilesdk.models.VVCMSSection.SectionParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="i" type="int">
+</parameter>
+</method>
+<method name="page"
+ return="com.volarvideo.mobilesdk.models.VVCMSSection.SectionParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="p" type="int">
+</parameter>
+</method>
+<method name="resultsPerPage"
+ return="com.volarvideo.mobilesdk.models.VVCMSSection.SectionParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="r" type="int">
+</parameter>
+</method>
+<method name="sites"
+ return="com.volarvideo.mobilesdk.models.VVCMSSection.SectionParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="s" type="java.lang.String">
+</parameter>
+</method>
+<method name="title"
+ return="com.volarvideo.mobilesdk.models.VVCMSSection.SectionParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="t" type="java.lang.String">
+</parameter>
+</method>
+<field name="_page"
+ type="int"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="VVCMSSite"
+ extends="java.lang.Object"
+ abstract="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSSite"
+ type="com.volarvideo.mobilesdk.models.VVCMSSite"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="json" type="JSONObject">
+</parameter>
+</constructor>
+<method name="describeContents"
+ return="int"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
+<method name="writeToParcel"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="dest" type="Parcel">
+</parameter>
+<parameter name="flags" type="int">
+</parameter>
+</method>
+<field name="CREATOR"
+ type="Parcelable.Creator"
+ transient="false"
+ volatile="false"
+ static="true"
+ final="true"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="id"
+ type="int"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="slug"
  type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+<field name="title"
+ type="java.lang.String"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
+</class>
+<class name="VVCMSSite.SiteParams"
+ extends="java.lang.Object"
+ abstract="false"
+ static="true"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<constructor name="VVCMSSite.SiteParams"
+ type="com.volarvideo.mobilesdk.models.VVCMSSite.SiteParams"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</constructor>
+<method name="applyParams"
+ return="java.lang.String"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="url" type="java.lang.String">
+</parameter>
+</method>
+<method name="id"
+ return="com.volarvideo.mobilesdk.models.VVCMSSite.SiteParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="i" type="int">
+</parameter>
+</method>
+<method name="page"
+ return="com.volarvideo.mobilesdk.models.VVCMSSite.SiteParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="p" type="int">
+</parameter>
+</method>
+<method name="resultsPerPage"
+ return="com.volarvideo.mobilesdk.models.VVCMSSite.SiteParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="r" type="int">
+</parameter>
+</method>
+<method name="title"
+ return="com.volarvideo.mobilesdk.models.VVCMSSite.SiteParams"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="t" type="java.lang.String">
+</parameter>
+</method>
+<field name="_page"
+ type="int"
  transient="false"
  volatile="false"
  static="false"
@@ -1174,17 +1858,6 @@
  visibility="public"
 >
 </method>
-<method name="isShutdown"
- return="boolean"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</method>
 <method name="load"
  return="void"
  abstract="false"
@@ -1242,19 +1915,6 @@
 <parameter name="seconds" type="double">
 </parameter>
 </method>
-<method name="setRate"
- return="boolean"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="rate" type="double">
-</parameter>
-</method>
 <method name="shutdown"
  return="void"
  abstract="false"
@@ -1282,7 +1942,7 @@
  deprecated="not deprecated"
  visibility="public"
 >
-<parameter name="ctx" type="Context">
+<parameter name="a" type="Activity">
 </parameter>
 </constructor>
 <method name="build"
@@ -1306,6 +1966,19 @@
  deprecated="not deprecated"
  visibility="public"
 >
+</method>
+<method name="setAPI"
+ return="com.volarvideo.mobilesdk.vplayer.VolarPlayerController.Builder"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="api" type="com.volarvideo.mobilesdk.api.VVCMSAPI">
+</parameter>
 </method>
 <method name="setAutoPlay"
  return="com.volarvideo.mobilesdk.vplayer.VolarPlayerController.Builder"

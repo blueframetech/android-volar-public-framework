@@ -16,27 +16,37 @@
         android:icon="@drawable/icon"
         android:label="@string/app_name">
         <activity
-            android:name=".BroadcastsActivity"
+            android:name=".MediaListActivity"
             android:windowSoftInputMode="stateHidden"
-            android:theme="@style/Theme.customTheme"
+            android:theme="@style/VolarActionBarTheme"
             android:configChanges="orientation|keyboard|keyboardHidden|navigation|screenSize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".VideoActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:exported="true"
-            android:hardwareAccelerated="true"
-            android:label="@string/app_name"
-            android:configChanges="orientation|keyboard|keyboardHidden|navigation|screenSize" >
-            <intent-filter>
-                <action android:name="com.volarvideo.mobileapidev.VIDEO_PLAY_ACTION" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+		<activity
+		    android:name=".VideoActivity"
+		    android:windowSoftInputMode="stateHidden"
+		    android:exported="true"
+		    android:hardwareAccelerated="true"
+		    android:label="@string/app_name"
+		    android:configChanges="orientation|keyboard|keyboardHidden|navigation|screenSize" >
+		
+		    <!-- Web launch -->
+		    <intent-filter>
+		         <action android:name="android.intent.action.VIEW" />
+		         <category android:name="android.intent.category.DEFAULT" />
+		         <category android:name="android.intent.category.BROWSABLE" />
+		
+		         <!-- Custom URL token is specified in the pathPrefix attribute -->
+		         <data android:pathPrefix="/api/broadcast/vmap:URL_TOKEN_GOES_HERE/" />
+		
+		         <data android:scheme="http" />
+		         <data android:scheme="https" />
+		         <data android:host="*.volarvideo.com" />
+		    </intent-filter>
+		</activity>
         <activity
             android:name="com.volarvideo.mobilesdk.InitActivity"
             android:configChanges="orientation|keyboard|keyboardHidden|navigation|screenSize"

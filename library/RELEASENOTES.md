@@ -3,6 +3,12 @@
 ### Known Issues
 * Intermittent crash after 20-30 minutes of continuous ads
 
+### v0.1.09
+* VVCMSAPI now supports both the mobile API key and username/password authentication
+* Greatly enhanced the VVCMSAPI interface to query content
+* The SDK now handles keeping the screen on during video playback
+* Fixed miscellaneous bugs
+
 ### v0.1.08
 * Adds live DVR support
 * Adds slow-mo support

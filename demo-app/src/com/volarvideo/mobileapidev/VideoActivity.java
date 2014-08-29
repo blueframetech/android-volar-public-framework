@@ -2,7 +2,6 @@ package com.volarvideo.mobileapidev;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.graphics.PixelFormat;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,11 +15,6 @@ import com.volarvideo.mobilesdk.LibsChecker;
 import com.volarvideo.mobilesdk.vplayer.VVPlayerView;
 import com.volarvideo.mobilesdk.vplayer.VolarPlayerController;
 
-/**
- * {@link VVPlayerView}
- * @author user
- *
- */
 public class VideoActivity extends Activity {
 	
 	private VolarPlayerController player;
@@ -31,7 +25,6 @@ public class VideoActivity extends Activity {
 		getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFormat(PixelFormat.RGBA_8888);
 		getWindow().clearFlags(WindowManager.LayoutParams.FLAG_DITHER);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 		super.onCreate(savedInstanceState);
 
@@ -78,6 +71,7 @@ public class VideoActivity extends Activity {
 		inflater.inflate(R.menu.video_menu, menu);
 		return true;
 	}
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch(item.getItemId()) {
@@ -89,11 +83,6 @@ public class VideoActivity extends Activity {
 			return true;
 		}
 		return false;
-	}
-
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
 	}
 
 	@Override
