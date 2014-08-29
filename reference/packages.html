@@ -260,17 +260,33 @@
 
 	<pre>
 public void onCreate(Bundle b) {
-       super.onCreate(b);
-       // Always run checkVolarLibs before using VolarPlayerController
-       if (!com.volarvideo.mobilesdk.LibsChecker.checkVolarLibs(this))
+        super.onCreate(b);
+        // Always run checkVolarLibs before using VolarPlayerController
+        if (!com.volarvideo.mobilesdk.LibsChecker.checkVolarLibs(this))
             return;
 
-       // Example player
-       VolarPlayerController player = new VolarPlayerController.Builder(context)
+        setContentView(R.layout.your_layout);
+
+        playerView = (VVPlayerView) findViewById(R.id.playerView);
+
+        // Example player
+        VolarPlayerController player = new VolarPlayerController.Builder(context)
             .setVmapURI(vmapURL)
             .setPlayerView(playerView)
             .load();
 }
+	</pre>
+
+	<p>
+		In this example, the <a href="com/volarvideo/mobilesdk/vplayer/VVPlayerView.html">VVPlayerView</a> is assumed to be in the layout xml.  Here's how to include the view in your layout:
+	</p>
+
+	<pre>
+
+&lt;com.volarvideo.mobilesdk.vplayer.VVPlayerView
+    android:id="@+id/playerView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" /&gt;
 	</pre>
 
 	<h2>Querying for Content</h2>
