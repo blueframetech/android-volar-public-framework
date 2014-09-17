@@ -558,6 +558,16 @@
  visibility="public"
 >
 </field>
+<field name="sectionID"
+ type="int"
+ transient="false"
+ volatile="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</field>
 <field name="startDate"
  type="java.util.Date"
  transient="false"
@@ -1555,6 +1565,17 @@
 <parameter name="defStyle" type="int">
 </parameter>
 </constructor>
+<method name="isScaleButtonHidden"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+</method>
 <method name="onClick"
  return="void"
  abstract="false"
@@ -1814,6 +1835,19 @@
 <parameter name="v" type="View">
 </parameter>
 <parameter name="event" type="MotionEvent">
+</parameter>
+</method>
+<method name="setScaleButtonHidden"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="hidden" type="boolean">
 </parameter>
 </method>
 <method name="toggleQosOverlay"

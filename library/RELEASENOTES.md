@@ -3,6 +3,12 @@
 ### Known Issues
 * Intermittent crash after 20-30 minutes of continuous ads
 
+### v0.1.09-h1
+* Added sectionID to VVCMSBroadcast
+* Added option to VVPlayer to hide scale mode button
+* Fixed crash that could happen when seeking
+* Optimized initial load of player
+
 ### v0.1.09
 * VVCMSAPI now supports both the mobile API key and username/password authentication
 * Greatly enhanced the VVCMSAPI interface to query content
