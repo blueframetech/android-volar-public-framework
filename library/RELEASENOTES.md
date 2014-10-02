@@ -3,6 +3,15 @@
 ### Known Issues
 * Intermittent crash after 20-30 minutes of continuous ads
 
+### v0.2.00
+* Adds real-time analytics
+* Fixed occurrences of "FFmpegException: XYZ"
+* Player no longer hangs on the last frame of prerolls
+* Player is now more robust against broadcasts that have just started streaming
+* Implements phase 1 of optimizing preroll loading
+* Support for web-launch v2.0 (CMS support pending)
+* Fixed miscellaneous crashes
+
 ### v0.1.09-h1
 * Added sectionID to VVCMSBroadcast
 * Added option to VVPlayer to hide scale mode button
