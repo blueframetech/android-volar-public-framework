@@ -15,7 +15,7 @@ apply plugin: 'android-library'
 
 
 //set the version for each release
-version '0.1.00'
+version '0.2.01'
 group 'com.volarvideo.mobilesdk'
 
 

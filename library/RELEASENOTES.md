@@ -3,6 +3,12 @@
 ### Known Issues
 * Intermittent crash after 20-30 minutes of continuous ads
 
+### v0.2.01
+* Added custom player user-agent
+* Fixed NPE crash caused by race condition when shutting down
+* Greatly optimized the loading of the player by removing unnecessary VAST loads
+* Fixed bug where midrolls could fail to load when there were no prerolls
+
 ### v0.2.00-h1
 * Replaced maxmind SDK with internal REST call
 * Removed the need for several dependencies including jackson
