@@ -3,6 +3,9 @@
 ### Known Issues
 * Intermittent crash after 20-30 minutes of continuous ads
 
+### v0.2.01-h1
+* Better handling of corrupt video resources
+
 ### v0.2.01
 * Added custom player user-agent
 * Fixed NPE crash caused by race condition when shutting down
