@@ -23,6 +23,15 @@ Getting started with the SDK is quick and easy.  In your <b>AndroidManifest.xml<
   android:targetSdkVersion="16" />
 ```
 
+There are four permissions required:
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+```
+
 You will also need to add an activity as shown here:
 
 ```xml
