@@ -23,35 +23,17 @@ Getting started with the SDK is quick and easy.  In your <b>AndroidManifest.xml<
   android:targetSdkVersion="16" />
 ```
 
-There are four permissions required:
+To avoid a long load time on the first instance of `VolarPlayerController`, put the following snippet in the `onCreate` of your initial `Activity`:
 
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+```java
+Volar.getInstance().initialize(this, null);
 ```
 
-You will also need to add an activity as shown here:
-
-```xml
-<activity
-  android:name="com.volarvideo.mobilesdk.InitActivity"
-  android:configChanges="orientation|keyboard|keyboardHidden|navigation|screenSize"
-  android:launchMode="singleTop"
-  android:theme="@android:style/Theme.NoTitleBar"
-  android:windowSoftInputMode="stateAlwaysHidden" />;
-```
-
-And lastly, you will need to add the following snippet to the beginning of any <b>Activity</b> that intends to use <b>VolarPlayerController</b>:
+And lastly, here's an example use of `VolarPlayerController`:
 
 ```java
 public void onCreate(Bundle b) {
   super.onCreate(b);
-  // Always run checkVolarLibs before using VolarPlayerController
-  if (!com.volarvideo.mobilesdk.LibsChecker.checkVolarLibs(this))
-    return;
-
   setContentView(R.layout.your_layout);
 
   playerView = (VVPlayerView) findViewById(R.id.playerView);
