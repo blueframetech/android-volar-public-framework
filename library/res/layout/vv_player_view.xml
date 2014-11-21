@@ -3,37 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
-
-    <LinearLayout
-        android:id="@+id/streams"
+    
+    <FrameLayout
+        android:id="@+id/frame"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:background="#40ffffff"
-        android:orientation="horizontal"
-        android:visibility="gone" >
-
-        <Spinner
-            android:id="@+id/language_spinner"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <Spinner
-            android:id="@+id/subtitle_spinner"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
+        android:layout_height="match_parent" />
 
     <RelativeLayout
         android:id="@+id/surfaces_rel_layout"
         android:gravity="center"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/streams">
+        android:layout_height="fill_parent">
         <com.volarvideo.mobilesdk.vplayer.VVSurfaceView
             android:id="@+id/initial_video_surface"
             android:visibility="visible"

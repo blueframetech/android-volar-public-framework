@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.volarvideo.mobilesdk.LibsChecker;
+import com.volarvideo.mobilesdk.Volar;
 import com.volarvideo.mobilesdk.vplayer.VVPlayerView;
 import com.volarvideo.mobilesdk.vplayer.VolarPlayerController;
 
@@ -31,10 +31,6 @@ public class VideoActivity extends Activity {
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 		getWindow().setBackgroundDrawable(null);
-
-		if(!LibsChecker.checkVolarLibs(this)) {
-			return;
-		}
 		
 		setContentView(R.layout.video_activity);
         

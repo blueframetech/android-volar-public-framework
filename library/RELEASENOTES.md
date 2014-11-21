@@ -3,6 +3,13 @@
 ### Known Issues
 * Intermittent crash after 20-30 minutes of continuous ads
 
+### v0.2.02
+* Native binaries are now dynamically loaded at runtime
+    - See the _Using the SDK_ section of the [docs](http://volarvideo.github.io/android-volar-public-framework/reference/packages.html) for best practices
+* Adds support for Android 5.0 (Lollipop)
+* More accurate data is now sent for geoblocked broadcasts as well as analytics
+* Fixed typo in GPS dialog
+
 ### v0.2.01-h1
 * Better handling of corrupt video resources
 

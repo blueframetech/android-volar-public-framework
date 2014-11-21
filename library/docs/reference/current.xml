@@ -1,129 +1,4 @@
 <api>
-<package name="com.volarvideo.mobilesdk"
->
-<class name="InitActivity"
- extends="Activity"
- abstract="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<constructor name="InitActivity"
- type="com.volarvideo.mobilesdk.InitActivity"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</constructor>
-<method name="onSurfaceTextureAvailable"
- return="void"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="surface" type="SurfaceTexture">
-</parameter>
-<parameter name="width" type="int">
-</parameter>
-<parameter name="height" type="int">
-</parameter>
-</method>
-<method name="onSurfaceTextureDestroyed"
- return="boolean"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="surface" type="SurfaceTexture">
-</parameter>
-</method>
-<method name="onSurfaceTextureSizeChanged"
- return="void"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="surface" type="SurfaceTexture">
-</parameter>
-<parameter name="width" type="int">
-</parameter>
-<parameter name="height" type="int">
-</parameter>
-</method>
-<method name="onSurfaceTextureUpdated"
- return="void"
- abstract="false"
- native="false"
- synchronized="false"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="surface" type="SurfaceTexture">
-</parameter>
-</method>
-</class>
-<class name="LibsChecker"
- extends="java.lang.Object"
- abstract="false"
- static="false"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-<constructor name="LibsChecker"
- type="com.volarvideo.mobilesdk.LibsChecker"
- static="false"
- final="false"
- deprecated="not deprecated"
- visibility="public"
->
-</constructor>
-<method name="checkVolarLibs"
- return="boolean"
- abstract="false"
- native="false"
- synchronized="false"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="activity" type="Activity">
-</parameter>
-</method>
-<method name="checkVolarLibs"
- return="boolean"
- abstract="false"
- native="false"
- synchronized="false"
- static="true"
- final="true"
- deprecated="not deprecated"
- visibility="public"
->
-<parameter name="activity" type="Activity">
-</parameter>
-<parameter name="forceUpdate" type="boolean">
-</parameter>
-</method>
-</class>
-</package>
 <package name="com.volarvideo.mobilesdk.api"
 >
 <class name="VVCMSAPI"
@@ -1902,6 +1777,79 @@
  deprecated="not deprecated"
  visibility="public"
 >
+</method>
+<method name="onInitialized"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="libStatus" type="LibStatus">
+</parameter>
+</method>
+<method name="onSurfaceTextureAvailable"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="surface" type="SurfaceTexture">
+</parameter>
+<parameter name="width" type="int">
+</parameter>
+<parameter name="height" type="int">
+</parameter>
+</method>
+<method name="onSurfaceTextureDestroyed"
+ return="boolean"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="surface" type="SurfaceTexture">
+</parameter>
+</method>
+<method name="onSurfaceTextureSizeChanged"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="surface" type="SurfaceTexture">
+</parameter>
+<parameter name="width" type="int">
+</parameter>
+<parameter name="height" type="int">
+</parameter>
+</method>
+<method name="onSurfaceTextureUpdated"
+ return="void"
+ abstract="false"
+ native="false"
+ synchronized="false"
+ static="false"
+ final="false"
+ deprecated="not deprecated"
+ visibility="public"
+>
+<parameter name="surface" type="SurfaceTexture">
+</parameter>
 </method>
 <method name="pause"
  return="void"

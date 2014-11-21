@@ -141,8 +141,6 @@
               <ul>
                 
     <li class="api apilevel-">
-  <a href="./com/volarvideo/mobilesdk/package-summary.html">com.volarvideo.mobilesdk</a></li>
-    <li class="api apilevel-">
   <a href="./com/volarvideo/mobilesdk/api/package-summary.html">com.volarvideo.mobilesdk.api</a></li>
     <li class="api apilevel-">
   <a href="./com/volarvideo/mobilesdk/models/package-summary.html">com.volarvideo.mobilesdk.models</a></li>
@@ -196,7 +194,7 @@
 
 <div class="jd-descr">
 <p><p style="float:right;font-weight:bold; text-align:right;margin-top:-1em;">
-		v0.2.01-h1<br/>(<a href="https://github.com/volarvideo/android-volar-public-framework/blob/master/library/RELEASENOTES.md">Release Notes</a>)
+		v0.2.02<br/>(<a href="https://github.com/volarvideo/android-volar-public-framework/blob/master/library/RELEASENOTES.md">Release Notes</a>)
 	</p>
 	<h1>VolarVideo Android Mobile SDK (Beta)</h1>
 	<p>
@@ -243,27 +241,19 @@
 	</pre>
 
 	<p>
-		You will also need to add an activity as shown here:
+		To avoid a long load time on the first instance of <a href="com/volarvideo/mobilesdk/vplayer/VolarPlayerController.html">VolarPlayerController</a>, put the following snippet in the <b>onCreate</b> of your initial <b>Activity</b>:
 	</p>
 	<pre>
-&lt;activity
-    android:name="com.volarvideo.mobilesdk.InitActivity"
-    android:configChanges="orientation|keyboard|keyboardHidden|navigation|screenSize"
-    android:launchMode="singleTop"
-    android:theme="@android:style/Theme.NoTitleBar"
-    android:windowSoftInputMode="stateAlwaysHidden" /&gt;
+Volar.getInstance().initialize(this, null);
 	</pre>
 
 	<p>
-		And lastly, you will need to add the following snippet to the beginning of any <b>Activity</b> that intends to use <a href="com/volarvideo/mobilesdk/vplayer/VolarPlayerController.html">VolarPlayerController</a>:
+		And lastly, here's an example use of <a href="com/volarvideo/mobilesdk/vplayer/VolarPlayerController.html">VolarPlayerController</a>:
 	</p>
 
 	<pre>
 public void onCreate(Bundle b) {
         super.onCreate(b);
-        // Always run checkVolarLibs before using VolarPlayerController
-        if (!com.volarvideo.mobilesdk.LibsChecker.checkVolarLibs(this))
-            return;
 
         setContentView(R.layout.your_layout);
 
@@ -398,26 +388,19 @@ if (uri != null) {
 
     <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol">
-  <a href="./com/volarvideo/mobilesdk/package-summary.html">com.volarvideo.mobilesdk</a></td>
-        <td class="jd-descrcol" width="100%"></td>
-    </tr>
-
-
-    <tr class=" api apilevel-" >
-        <td class="jd-linkcol">
   <a href="./com/volarvideo/mobilesdk/api/package-summary.html">com.volarvideo.mobilesdk.api</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol">
   <a href="./com/volarvideo/mobilesdk/models/package-summary.html">com.volarvideo.mobilesdk.models</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
 
 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol">
   <a href="./com/volarvideo/mobilesdk/vplayer/package-summary.html">com.volarvideo.mobilesdk.vplayer</a></td>
         <td class="jd-descrcol" width="100%"></td>

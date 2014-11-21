@@ -40,6 +40,7 @@ import com.volarvideo.mobileapidev.adapters.SectionAdapter;
 import com.volarvideo.mobileapidev.util.Conversions;
 import com.volarvideo.mobileapidev.util.EndlessScrollListener;
 import com.volarvideo.mobileapidev.util.Utils;
+import com.volarvideo.mobilesdk.Volar;
 import com.volarvideo.mobilesdk.api.VVCMSAPI;
 import com.volarvideo.mobilesdk.api.VVCMSAPIDelegate;
 import com.volarvideo.mobilesdk.models.VVCMSBroadcast;
@@ -84,6 +85,10 @@ public class MediaListActivity extends Activity implements VVCMSAPIDelegate {
         super.onCreate(savedInstanceState);
 		setContentView(R.layout.media_list);
 
+		// Start the initialization process so the first video
+		// doesn't have to wait as long
+		Volar.getInstance().initialize(this, null);
+		
         Utils.setupImageLoader(getApplicationContext());
 		setupViews();
 
