@@ -1,7 +1,5 @@
 var NAVTREE_DATA =
-[ [ "com.volarvideo.mobilesdk", "com/volarvideo/mobilesdk/package-summary.html", [ [ "Classes", null, [ [ "InitActivity", "com/volarvideo/mobilesdk/InitActivity.html", null, "" ], [ "LibsChecker", "com/volarvideo/mobilesdk/LibsChecker.html", null, "" ] ]
-, "" ] ]
-, "" ], [ "com.volarvideo.mobilesdk.api", "com/volarvideo/mobilesdk/api/package-summary.html", [ [ "Interfaces", null, [ [ "VVCMSAPIDelegate", "com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html", null, "" ] ]
+[ [ "com.volarvideo.mobilesdk.api", "com/volarvideo/mobilesdk/api/package-summary.html", [ [ "Interfaces", null, [ [ "VVCMSAPIDelegate", "com/volarvideo/mobilesdk/api/VVCMSAPIDelegate.html", null, "" ] ]
 , "" ], [ "Classes", null, [ [ "VVCMSAPI", "com/volarvideo/mobilesdk/api/VVCMSAPI.html", null, "" ] ]
 , "" ], [ "Exceptions", null, [ [ "VVCMSAPI.DomainUnreachableException", "com/volarvideo/mobilesdk/api/VVCMSAPI.DomainUnreachableException.html", null, "" ], [ "VVCMSAPI.NoDomainURLException", "com/volarvideo/mobilesdk/api/VVCMSAPI.NoDomainURLException.html", null, "" ], [ "VVCMSAPI.UnknownEndpointException", "com/volarvideo/mobilesdk/api/VVCMSAPI.UnknownEndpointException.html", null, "" ], [ "VVCMSAPI.VVCMSAPIException", "com/volarvideo/mobilesdk/api/VVCMSAPI.VVCMSAPIException.html", null, "" ] ]
 , "" ] ]
