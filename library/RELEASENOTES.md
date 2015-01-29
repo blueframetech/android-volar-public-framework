@@ -1,7 +1,14 @@
 ## Release Notes
 
-### Known Issues
-* Intermittent crash after 20-30 minutes of continuous ads
+### v0.2.03
+* Fixed multiple intermittent native crashes
+* Fixed case where a player could get endless buffering
+* Fixed memory leak that caused crashes after 20-30 minutes of playback
+* UI tweaks
+    - Spinner no longer hides before both prerolls and content have loaded
+    - Timer displays immediately on an archived Adbreak instead of after content seeks
+* Added native heap to QoS overlay
+* Fixed miscellaneous bugs
 
 ### v0.2.02
 * Native binaries are now dynamically loaded at runtime
