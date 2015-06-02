@@ -1,5 +1,5 @@
 # Volar Video Android SDK
-This SDK includes a widget for playing live/archived broadcasts managed by a VolarVideo CMS as well as a wrapper for the API to access the content the Volar system manages.  Detailed documentation about the SDK can be found [here](http://volarvideo.github.io/android-volar-public-framework).  *For a working implementation of this project see the `demo-app` folder.*
+This SDK includes a widget for playing live/archived broadcasts managed by a VolarVideo CMS as well as a wrapper for the API to access the content the Volar system manages.  Detailed documentation about the SDK can be found [here](http://bluefametech.github.io/android-volar-public-framework).  *For a working implementation of this project see the `demo-app` folder.*
 
 
 ### Including the SDK with Eclipse:
