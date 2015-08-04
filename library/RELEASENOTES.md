@@ -1,5 +1,9 @@
 ## Release Notes
 
+### v0.2.04
+* Fixed crash that occurred when player analytics were disabled
+* Migrated some player assets to BlueFrame Technology
+
 ### v0.2.03
 * Fixed multiple intermittent native crashes
 * Fixed case where a player could get endless buffering
